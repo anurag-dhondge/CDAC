@@ -72,27 +72,16 @@ The main purpose of this repository is to:
 * Track my learning progress
 * Keep all assignments available for revision
 
-## 🚀 Future Additions
-
-This repository will be continuously updated with topics covered during my CDAC journey, including:
-
-* Data Structures
-* Java
-* DBMS
-* Operating Systems
-* Computer Networks
-* Object-Oriented Programming
-* Advanced Programming
-* Projects
-* Practice Problems
 
 ## 👨‍💻 Author
 
 **Anurag Dhondge**
 
 BE Artificial Intelligence & Machine Learning
+~PES Modern College of Engineering, Pune
 
-PES Modern College of Engineering, Pune
+CDAC PGCP-AC
+~IACSD
 
 ---
 
