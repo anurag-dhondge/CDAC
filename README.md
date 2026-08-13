@@ -1,194 +1,99 @@
-# C-DAC Programs Repository
+# CDAC Foundation Assignments
 
-A comprehensive collection of programs, examples, assignments, and practice problems developed while studying various **C-DAC (Centre for Development of Advanced Computing)** courses.
-
----
+This repository contains my **CDAC foundation-level programming assignments and practice codes** prepared as part of my learning journey before and during the CDAC program.
 
 ## 📂 Repository Structure
 
 ```text
-CDAC-Programs/
+CDAC/
 │
-├── DAC/
-│   ├── C Programming/
-│   ├── Data Structures & Algorithms/
-│   ├── C++/
-│   ├── Java/
-│   ├── Database Technologies/
-│   ├── Web Programming/
-│   ├── .NET/
-│   ├── Operating Systems/
-│   ├── Linux/
-│   ├── Software Engineering/
-│   └── Mini Projects/
-│
-├── AI/
-│   ├── Python/
-│   ├── Machine Learning/
-│   ├── Deep Learning/
-│   ├── NLP/
-│   ├── Computer Vision/
-│   ├── Generative AI/
-│   ├── MLOps/
-│   └── Projects/
-│
-├── DBDA/
-│   ├── SQL/
-│   ├── PostgreSQL/
-│   ├── MongoDB/
-│   ├── Data Warehousing/
-│   ├── Hadoop/
-│   ├── Spark/
-│   ├── Data Analytics/
-│   └── Projects/
-│
-├── Common/
-│   ├── Aptitude/
-│   ├── Interview Questions/
-│   ├── Notes/
-│   └── Resources/
+├── CDAC_FOUNDATION_ASSIGNMENTS/
+│   │
+│   ├── C_ASSIGNMENTS/
+│   │   ├── 1d_array/
+│   │   ├── 2d_array/
+│   │   ├── C_PROGRAM_ASSIGNMENT/
+│   │   ├── Pointers/
+│   │   ├── String/
+│   │   ├── Structures/
+│   │   ├── function/
+│   │   ├── if-else/
+│   │   ├── loops/
+│   │   └── switch_case/
+│   │
+│   └── C++_ASSIGNMENTS/
+│       ├── ARRAY_(OBJECTS)/
+│       ├── BASIC_(CLASS & OBJECTS)/
+│       ├── CONSTRUCTORS/
+│       ├── INHERITANCE/
+│       ├── POLYMORPHISM/
+│       └── STATIC_VARIABLES/
 │
 └── README.md
 ```
 
----
+## 🟦 C Programming
 
-## 📖 About
+The C assignments cover fundamental programming concepts:
 
-This repository is intended to serve as a centralized resource for learning and practicing topics covered in different C-DAC courses.
+* Basic C programs
+* Input and output
+* Conditional statements
+* Loops
+* Functions
+* Arrays
+* 2D arrays
+* Strings
+* Pointers
+* Structures
+* Switch-case
+* Problem-solving practice
 
-Each folder contains:
+## 🟩 C++ Programming
 
-* Programs
-* Practice Questions
-* Assignments
-* Notes
-* Mini Projects
-* Interview Preparation
-* Important Concepts
+The C++ assignments focus on Object-Oriented Programming concepts:
 
----
+* Classes and Objects
+* Arrays of Objects
+* Constructors
+* Inheritance
+* Polymorphism
+* Static Variables
+* Basic OOP programming
 
-## 📚 Programs Covered
+## 🎯 Purpose
 
-### PG-DAC
+The main purpose of this repository is to:
 
-* C Programming
+* Strengthen C and C++ fundamentals
+* Practice programming regularly
+* Build a strong foundation for CDAC
+* Maintain organized coding practice
+* Track my learning progress
+* Keep all assignments available for revision
+
+## 🚀 Future Additions
+
+This repository will be continuously updated with topics covered during my CDAC journey, including:
+
 * Data Structures
-* C++
 * Java
-* Database Technologies
+* DBMS
 * Operating Systems
-* Linux
-* Web Technologies
-* .NET
-* Software Engineering
+* Computer Networks
+* Object-Oriented Programming
+* Advanced Programming
+* Projects
+* Practice Problems
 
-### PG-DBDA
+## 👨‍💻 Author
 
-* SQL
-* PostgreSQL
-* MongoDB
-* Data Warehousing
-* Hadoop
-* Spark
-* Data Analytics
-* Python for Data Analysis
+**Anurag Dhondge**
 
-### PG-AI
+BE Artificial Intelligence & Machine Learning
 
-* Python
-* Machine Learning
-* Deep Learning
-* Computer Vision
-* Natural Language Processing
-* Generative AI
-* MLOps
-* AI Projects
+PES Modern College of Engineering, Pune
 
 ---
 
-## 🎯 Objectives
-
-* Practice programming concepts
-* Build strong fundamentals
-* Prepare for C-DAC examinations
-* Improve coding skills
-* Prepare for placements and technical interviews
-* Build real-world mini projects
-
----
-
-## 🛠 Technologies
-
-* C
-* C++
-* Java
-* Python
-* SQL
-* HTML
-* CSS
-* JavaScript
-* Linux
-* Git & GitHub
-* PostgreSQL
-* MongoDB
-* Hadoop
-* Spark
-
----
-
-## 🚀 Getting Started
-
-1. Clone the repository.
-
-```bash
-git clone https://github.com/your-username/CDAC-Programs.git
-```
-
-2. Navigate to the desired course folder.
-
-3. Compile or run the programs using the appropriate compiler or interpreter.
-
----
-
-## 📌 Prerequisites
-
-* Basic programming knowledge
-* GCC Compiler
-* Java JDK
-* Python 3.x
-* PostgreSQL
-* MongoDB
-* Git
-
----
-
-## 🤝 Contributions
-
-Contributions are welcome.
-
-Feel free to:
-
-* Improve existing programs
-* Add new examples
-* Fix bugs
-* Enhance documentation
-
----
-
-## 📜 License
-
-This project is intended for educational purposes.
-
----
-
-## ⭐ Support
-
-If you find this repository helpful:
-
-* Star the repository
-* Fork it
-* Share it with others
-
-Happy Coding! 🚀
+⭐ This repository is a record of my **CDAC learning and coding journey**.
