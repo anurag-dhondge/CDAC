@@ -1,0 +1,222 @@
+# IACSD AC — C & C++ Notes 💻
+
+My personal **C and C++ programming notes, practice programs, assignments, and problem-solving code** prepared during my **IACSD PGCP-AC** course.
+
+
+## 🎓 Course
+
+**PGCP-AC — Advanced Computing**
+
+**Institute:** IACSD, Pune
+
+**Focus:** C Programming • C++ Programming • Logic Building • Problem Solving • OOP
+
+---
+
+## 📂 Repository Structure
+
+```text
+IACSD-AC-C-CPP/
+│
+├── C/
+│   ├── Basics/
+│   ├── Operators/
+│   ├── Control-Flow/
+│   ├── Loops/
+│   ├── Functions/
+│   ├── Arrays/
+│   ├── Strings/
+│   ├── Pointers/
+│   ├── Structures/
+│   ├── File-Handling/
+│   └── Programs/
+│
+├── CPP/
+│   ├── Basics/
+│   ├── Functions/
+│   ├── Classes-Objects/
+│   ├── Constructors-Destructors/
+│   ├── This-Pointer/
+│   ├── Encapsulation/
+│   ├── Inheritance/
+│   ├── Polymorphism/
+│   ├── Abstraction/
+│   ├── Operator-Overloading/
+│   ├── Templates/
+│   ├── Exception-Handling/
+│   ├── STL/
+│   └── Programs/
+│
+├── Assignments/
+├── Practice/
+├── MCQs/
+└── README.md
+```
+
+---
+
+# 🔵 C Programming
+
+Personal notes and programs covering the fundamentals of C programming.
+
+### Topics
+
+* C Fundamentals
+* Variables & Constants
+* Data Types
+* Input & Output
+* Operators
+* Conditional Statements
+* Loops
+* Nested Loops
+* Jump Statements
+* Functions
+* Arrays
+* Strings
+* Pointers
+* Structures & Unions
+* File Handling
+* Dynamic Memory Allocation
+* Logic Building
+* Problem Solving
+
+---
+
+# 🟣 C++ Programming
+
+Personal notes and practice programs for C++ programming and Object-Oriented Programming.
+
+### Topics
+
+* C++ Fundamentals
+* Variables & Data Types
+* Input & Output
+* Operators
+* Control Statements
+* Loops
+* Functions
+* Arrays & Strings
+* Pointers & References
+* Classes & Objects
+* Access Specifiers
+* Constructors
+* Destructors
+* `this` Pointer
+* Static Members
+* Friend Functions
+* Function Overloading
+* Inheritance
+* Polymorphism
+* Encapsulation
+* Abstraction
+* Operator Overloading
+* Templates
+* Exception Handling
+* STL
+
+---
+
+# 🧠 Problem Solving
+
+This repository also contains programs written to improve programming logic and problem-solving skills.
+
+### Practice Areas
+
+* Number Problems
+* Pattern Programs
+* Mathematical Problems
+* Menu-Driven Programs
+* Loop-Based Problems
+* Nested Loop Problems
+* Array Problems
+* String Problems
+* Function-Based Problems
+* Searching
+* Sorting
+* Logical Problems
+
+---
+
+# 📝 Assignments
+
+Contains my own solutions and practice work for programming assignments.
+
+```text
+Assignments/
+├── C/
+└── CPP/
+```
+
+---
+
+# 💻 Coding Environment
+
+Programs are primarily developed and tested using:
+
+* **Visual Studio Code**
+* **GCC / G++**
+* **MSYS2 / MinGW**
+* **C/C++ VS Code Extension**
+* **Code Runner**
+
+---
+
+# 🎯 Learning Goals
+
+* Build strong C fundamentals
+* Improve programming logic
+* Write clean and readable code
+* Understand C++ fundamentals
+* Master Object-Oriented Programming
+* Practice problem solving
+* Prepare for technical interviews
+* Build a strong foundation for Data Structures and Advanced Programming
+
+---
+
+# 📈 Progress
+
+| Topic             | Status      |
+| ----------------- | ----------- |
+| C Basics          | 🔄 Learning |
+| Operators         | 🔄 Learning |
+| Control Flow      | 🔄 Learning |
+| Loops             | 🔄 Learning |
+| Functions         | ⏳ Upcoming  |
+| Arrays            | ⏳ Upcoming  |
+| Strings           | ⏳ Upcoming  |
+| Pointers          | ⏳ Upcoming  |
+| Structures        | ⏳ Upcoming  |
+| C++ Basics        | ⏳ Upcoming  |
+| Classes & Objects | ⏳ Upcoming  |
+| OOP               | ⏳ Upcoming  |
+| STL               | ⏳ Upcoming  |
+
+---
+
+# ⚠️ Disclaimer
+
+This is a **personal learning repository** created to organize my own notes, code, assignments, and practice.
+
+It is **not an official IACSD repository** and does not contain or redistribute IACSD's official course material, PDFs, slides, or proprietary content.
+
+All code in this repository is written, practiced, or modified by me for learning purposes.
+
+---
+
+## 👨‍💻 Author
+
+**Anurag**
+
+BE Artificial Intelligence & Machine Learning
+PGCP-AC — IACSD Pune
+
+---
+
+### ⭐ Learning Approach
+
+```text
+Learn → Understand → Code → Practice → Debug → Revise
+```
+
+> **Consistency matters more than complexity. 🚀**
