@@ -1,88 +1,147 @@
-# CDAC Foundation Assignments
+<div align="center">
 
-This repository contains my **CDAC foundation-level programming assignments and practice codes** prepared as part of my learning journey before and during the CDAC program.
+# 🚀 CDAC Foundation Assignments
 
-## 📂 Repository Structure
+### C & C++ Programming • Logic Building • Problem Solving
 
-```text
-CDAC/
-│
-├── CDAC_FOUNDATION_ASSIGNMENTS/
-│   │
-│   ├── C_ASSIGNMENTS/
-│   │   ├── 1d_array/
-│   │   ├── 2d_array/
-│   │   ├── C_PROGRAM_ASSIGNMENT/
-│   │   ├── Pointers/
-│   │   ├── String/
-│   │   ├── Structures/
-│   │   ├── function/
-│   │   ├── if-else/
-│   │   ├── loops/
-│   │   └── switch_case/
-│   │
-│   └── C++_ASSIGNMENTS/
-│       ├── ARRAY_(OBJECTS)/
-│       ├── BASIC_(CLASS & OBJECTS)/
-│       ├── CONSTRUCTORS/
-│       ├── INHERITANCE/
-│       ├── POLYMORPHISM/
-│       └── STATIC_VARIABLES/
-│
-└── README.md
-```
+<img src="https://img.shields.io/badge/CDAC-Foundation-6C63FF?style=for-the-badge" />
+<img src="https://img.shields.io/badge/C-Programming-A8B9CC?style=for-the-badge&logo=c&logoColor=black" />
+<img src="https://img.shields.io/badge/C%2B%2B-Programming-00599C?style=for-the-badge&logo=cplusplus&logoColor=white" />
+
+<br><br>
+
+> 💻 A personal collection of my **CDAC foundation assignments, coding practice, and problem-solving programs.**
+
+</div>
+
+---
+
+## 🧠 About
+
+This repository contains my **CDAC foundation-level programming assignments and practice codes**, prepared as part of my learning journey before and during the CDAC program.
+
+The primary focus is on developing strong programming fundamentals, improving logical thinking, and building confidence through regular coding practice.
+
+---
 
 ## 🟦 C Programming
 
-The C assignments cover fundamental programming concepts:
+The C programming section focuses on building a strong foundation in procedural programming and problem solving.
 
-* Basic C programs
-* Input and output
-* Conditional statements
-* Loops
-* Functions
-* Arrays
-* 2D arrays
-* Strings
-* Pointers
-* Structures
-* Switch-case
-* Problem-solving practice
+### Key Areas
+
+- 🔹 Programming Fundamentals
+- 🔹 Variables & Data Types
+- 🔹 Operators
+- 🔹 Conditional Statements
+- 🔹 Loops & Nested Loops
+- 🔹 Functions
+- 🔹 Arrays
+- 🔹 Strings
+- 🔹 Pointers
+- 🔹 Structures
+- 🔹 Problem Solving
+- 🔹 Menu-Driven Programs
+
+---
 
 ## 🟩 C++ Programming
 
-The C++ assignments focus on Object-Oriented Programming concepts:
+The C++ section focuses on programming fundamentals and **Object-Oriented Programming (OOP)** concepts.
 
-* Classes and Objects
-* Arrays of Objects
-* Constructors
-* Inheritance
-* Polymorphism
-* Static Variables
-* Basic OOP programming
+### Key Areas
+
+- 🔹 C++ Fundamentals
+- 🔹 Classes & Objects
+- 🔹 Constructors & Destructors
+- 🔹 `this` Pointer
+- 🔹 Encapsulation
+- 🔹 Abstraction
+- 🔹 Inheritance
+- 🔹 Polymorphism
+- 🔹 Function Overloading
+- 🔹 Operator Overloading
+- 🔹 Templates
+- 🔹 Exception Handling
+- 🔹 STL
+
+---
+
+## 🧩 Problem Solving
+
+A major goal of this repository is to improve programming logic through hands-on practice.
+
+> **Understand the problem → Build the logic → Write the code → Debug → Improve**
+
+Practice includes:
+
+- 🔢 Number-based problems
+- 🔷 Pattern programs
+- 🔄 Loop problems
+- 📦 Array problems
+- 🔤 String problems
+- 🧮 Mathematical problems
+- 📝 Menu-driven programs
+- 🧠 Logical problems
+- 🔍 Searching & Sorting
+
+---
 
 ## 🎯 Purpose
 
 The main purpose of this repository is to:
 
-* Strengthen C and C++ fundamentals
-* Practice programming regularly
-* Build a strong foundation for CDAC
-* Maintain organized coding practice
-* Track my learning progress
-* Keep all assignments available for revision
-
-
-## 👨‍💻 Author
-
-**Anurag Dhondge**
-
-BE Artificial Intelligence & Machine Learning
-~PES Modern College of Engineering, Pune
-
-CDAC PGCP-AC
-~IACSD
+- 💪 Strengthen C and C++ fundamentals
+- 🧠 Improve logical thinking and problem-solving skills
+- 💻 Practice programming regularly
+- 🎓 Build a strong foundation for CDAC
+- 📚 Maintain organized coding practice
+- 🔄 Make revision easier
+- 📈 Track my learning progress
+- 🚀 Prepare for advanced programming and Data Structures
 
 ---
 
-⭐ This repository is a record of my **CDAC learning and coding journey**.
+## 📈 Learning Approach
+
+<div align="center">
+
+### `Learn → Understand → Code → Debug → Practice → Revise`
+
+</div>
+
+I believe that programming is best learned by **writing and debugging code**, rather than only reading theory.
+
+---
+
+## ⚠️ Disclaimer
+
+This is a **personal learning repository** containing my own assignments, solutions, practice programs, and coding work.
+
+It is **not an official CDAC or IACSD repository**.
+
+Official institute notes, PDFs, slides, or proprietary course material are **not uploaded or redistributed** here.
+
+---
+
+## 👨‍💻 Author
+
+### **Anurag Dhondge**
+
+**BE Artificial Intelligence & Machine Learning**  
+**PES Modern College of Engineering, Pune**
+
+**CDAC PGCP-AC**  
+**IACSD, Pune**
+
+[![GitHub](https://img.shields.io/badge/GitHub-anurag--dhondge-181717?style=for-the-badge&logo=github)](https://github.com/anurag-dhondge)
+
+---
+
+<div align="center">
+
+### ⭐ Keep Learning • Keep Coding • Keep Improving
+
+**"Strong fundamentals build strong programmers."**
+
+</div>
