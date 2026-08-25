@@ -4,13 +4,13 @@
 
 void Palindrome(int num)
 {
-    int original, reverse, rem = 0;
+    int original, reverse = 0;
 
     original = num;
 
     while(num > 0)
     {
-        rem = num % 10;
+        int rem = num % 10;
         reverse = reverse * 10 + rem;
         num = num / 10;
     }
