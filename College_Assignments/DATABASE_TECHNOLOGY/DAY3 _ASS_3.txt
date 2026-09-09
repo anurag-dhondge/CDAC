@@ -1,0 +1,300 @@
+NAME       : ANURAG VILAS DHONDGE 
+
+ROLL   	   : 268013 
+
+BRANCH     : PGCP-AC 
+
+PRN   	   : 260841220030 
+
+ASSIGNMENT : DAY 3 - Date and Time functions
+------------------------------------------------------------------------------------------------------------------------------------------
+Date and Time functions  
+1. Write a query to display the first day of the month (in datetime format) three  months before the current month. 
+Sample current date : 2014-09-03 
+Expected result : 2014-06-01 
+2. Write a query to display the last day of the month (in datetime format) three  months before the current month. 
+3. Write a query to get the distinct Mondays from hiredate in emp tables. 4. Write a query to get the first day of the current year. 
+5. Write a query to get the last day of the current year. 
+6. Write a query to calculate your age in year. 
+7. Write a query to get the current date in the following format. Sample date : 04-sep-2014 
+Output : September 4, 2014 
+8. Write a query to get the current date in Thursday September 2014 format. Thursday September 2014 
+9. Write a query to extract the year from the current date. 
+10. Write a query to get the first name and hire date from employees table  where hire date between '1987-06-01' and '1987-07-30' 
+11. Write a query to display the current date in the following format. Sample output: Thursday 4th September 2014 00:00:00 
+12. Write a query to display the current date in the following format. Sample output: 05/09/2014 
+13. Write a query to display the current date in the following format. Sample output: 12:00 AM Sep 5, 2014 
+14. Write a query to get the employees who joined in the month of June.
+15. Write a query to get the years in which more than 10 employees joined. 16. Write a query to get first name of employees who joined in 1987. 17. Write a query to get employees whose experience is more than 5 years. 
+18. Write a query to get employee ID, last name, and date of first salary of the  employees. 
+19. Write a query to get first name, hire date and experience of the  employees. 
+Sample table: employees 
+20. Write a query to get the department ID, year, and number of employees  joined. 
+ 
+------------------------------------------------------------------------------------------------------------------------------------------
+
+Enter password: *******
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 27
+Server version: 8.0.46 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2026, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+mysql> SELECT DATE_FORMAT(CURDATE(),'%Y-%m-01');
++-----------------------------------+
+| DATE_FORMAT(CURDATE(),'%Y-%m-01') |
++-----------------------------------+
+| 2026-09-01                        |
++-----------------------------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT LAST_DAY(CURDATE());
++---------------------+
+| LAST_DAY(CURDATE()) |
++---------------------+
+| 2026-09-30          |
++---------------------+
+1 row in set (0.01 sec)
+
+mysql> SELECT DATE_FORMAT(DATE_SUB(CURDATE(),INTERVAL 3 MONTH),'%Y-%m-01');
++--------------------------------------------------------------+
+| DATE_FORMAT(DATE_SUB(CURDATE(),INTERVAL 3 MONTH),'%Y-%m-01') |
++--------------------------------------------------------------+
+| 2026-06-01                                                   |
++--------------------------------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT LAST_DAY(DATE_SUB(CURDATE(),INTERVAL 3 MONTH));
++------------------------------------------------+
+| LAST_DAY(DATE_SUB(CURDATE(),INTERVAL 3 MONTH)) |
++------------------------------------------------+
+| 2026-06-30                                     |
++------------------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| iacsdacaug2026     |
+| information_schema |
+| mysql              |
+| performance_schema |
+| product_assignment |
+| sakila             |
+| sys                |
+| world              |
++--------------------+
+8 rows in set (0.03 sec)
+
+mysql> USE IACSDACAUG2026;
+Database changed
+
+mysql> SELECT * FROM EMP WHERE DAYNAME(HIREDATE)='MONDAY';
++-------+--------+----------+------+------------+---------+---------+--------+
+| EMPNO | ENAME  | JOB      | MGR  | HIREDATE   | SAL     | COMM    | DEPTNO |
++-------+--------+----------+------+------------+---------+---------+--------+
+|  7654 | MARTIN | SALESMAN | 7698 | 1981-09-28 | 1250.00 | 1400.00 |     30 |
++-------+--------+----------+------+------------+---------+---------+--------+
+1 row in set (0.02 sec)
+
+mysql> SELECT DATE_FORMAT(CURDATE(),'%Y-01-01');
++-----------------------------------+
+| DATE_FORMAT(CURDATE(),'%Y-01-01') |
++-----------------------------------+
+| 2026-01-01                        |
++-----------------------------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT DATE_FORMAT(CURDATE(),'%Y-12-31');
++-----------------------------------+
+| DATE_FORMAT(CURDATE(),'%Y-12-31') |
++-----------------------------------+
+| 2026-12-31                        |
++-----------------------------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT TIMESTAMPDIFF(YEAR,'2004-01-30',CURDATE());
++--------------------------------------------+
+| TIMESTAMPDIFF(YEAR,'2004-01-30',CURDATE()) |
++--------------------------------------------+
+|                                         22 |
++--------------------------------------------+
+1 row in set (0.01 sec)
+
+mysql> SELECT DATE_FORMAT(CURDATE(),'%M %e, %Y');
++------------------------------------+
+| DATE_FORMAT(CURDATE(),'%M %e, %Y') |
++------------------------------------+
+| September 9, 2026                  |
++------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT DATE_FORMAT(CURDATE(),'%W %M %Y');
++-----------------------------------+
+| DATE_FORMAT(CURDATE(),'%W %M %Y') |
++-----------------------------------+
+| Wednesday September 2026          |
++-----------------------------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT YEAR(CURDATE());
++-----------------+
+| YEAR(CURDATE()) |
++-----------------+
+|            2026 |
++-----------------+
+1 row in set (0.01 sec)
+
+mysql> SELECT ENAME,HIREDATE FROM EMP
+    -> WHERE HIREDATE BETWEEN '1987-06-01' AND '1987-07-30';
+Empty set (0.01 sec)
+
+mysql> SELECT DATE_FORMAT(CURDATE(),'%W %D %M %Y 00:00:00');
++-----------------------------------------------+
+| DATE_FORMAT(CURDATE(),'%W %D %M %Y 00:00:00') |
++-----------------------------------------------+
+| Wednesday 9th September 2026 00:00:00         |
++-----------------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT DATE_FORMAT(CURDATE(),'%W %D %M %Y HH:MM:SS');
++-----------------------------------------------+
+| DATE_FORMAT(CURDATE(),'%W %D %M %Y HH:MM:SS') |
++-----------------------------------------------+
+| Wednesday 9th September 2026 HH:MM:SS         |
++-----------------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT DATE_FORMAT(NOW(),'%W %D %M %Y %r');
++------------------------------------------+
+| DATE_FORMAT(NOW(),'%W %D %M %Y %r')      |
++------------------------------------------+
+| Wednesday 9th September 2026 03:38:36 PM |
++------------------------------------------+
+1 row in set (0.01 sec)
+
+mysql> SELECT DATE_FORMAT(CURDATE(),'%d/%m/%Y');
++-----------------------------------+
+| DATE_FORMAT(CURDATE(),'%d/%m/%Y') |
++-----------------------------------+
+| 09/09/2026                        |
++-----------------------------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT DATE_FORMAT(CURDATE(),'12:00 AM %b %e, %Y');
++---------------------------------------------+
+| DATE_FORMAT(CURDATE(),'12:00 AM %b %e, %Y') |
++---------------------------------------------+
+| 12:00 AM Sep 9, 2026                        |
++---------------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT * FROM EMP
+    -> WHERE MONTH(HIREDATE)=6;
++-------+-------+---------+------+------------+---------+------+--------+
+| EMPNO | ENAME | JOB     | MGR  | HIREDATE   | SAL     | COMM | DEPTNO |
++-------+-------+---------+------+------------+---------+------+--------+
+|  7782 | CLARK | MANAGER | 7839 | 1981-06-09 | 2450.00 | NULL |     10 |
++-------+-------+---------+------+------------+---------+------+--------+
+1 row in set (0.01 sec)
+
+mysql> SELECT YEAR(HIREDATE),COUNT(*)
+    -> FROM EMP
+    -> GROUP BY YEAR(HIREDATE)
+    -> HAVING COUNT(*)>10;
+Empty set (0.01 sec)
+
+mysql> SELECT ENAME FROM EMP
+    -> WHERE YEAR(HIREDATE)=1987;
+Empty set (0.00 sec)
+
+mysql> SELECT * FROM EMP
+    -> WHERE TIMESTAMPDIFF(YEAR,HIREDATE,CURDATE())>5;
++-------+--------+-----------+------+------------+---------+---------+--------+
+| EMPNO | ENAME  | JOB       | MGR  | HIREDATE   | SAL     | COMM    | DEPTNO |
++-------+--------+-----------+------+------------+---------+---------+--------+
+|  7369 | SMITH  | CLERK     | 7902 | 1980-12-17 |  800.00 |    NULL |     20 |
+|  7499 | ALLEN  | SALESMAN  | 7698 | 1981-02-20 | 1600.00 |  300.00 |     30 |
+|  7521 | WARD   | SALESMAN  | 7698 | 1981-02-22 | 1250.00 |  500.00 |     30 |
+|  7566 | JONES  | MANAGER   | 7839 | 1981-04-02 | 2975.00 |    NULL |     20 |
+|  7654 | MARTIN | SALESMAN  | 7698 | 1981-09-28 | 1250.00 | 1400.00 |     30 |
+|  7698 | BLAKE  | MANAGER   | 7839 | 1981-05-01 | 2850.00 |    NULL |     30 |
+|  7782 | CLARK  | MANAGER   | 7839 | 1981-06-09 | 2450.00 |    NULL |     10 |
+|  7788 | SCOTT  | ANALYST   | 7566 | 1982-12-09 | 3000.00 |    NULL |     20 |
+|  7839 | KING   | PRESIDENT | NULL | 1981-11-17 | 5000.00 |    NULL |     10 |
+|  7844 | TURNER | SALESMAN  | 7698 | 1981-09-08 | 1500.00 |    0.00 |     30 |
+|  7876 | ADAMS  | CLERK     | 7788 | 1983-01-12 | 1100.00 |    NULL |     20 |
+|  7900 | JAMES  | CLERK     | 7698 | 1981-12-03 |  950.00 |    NULL |     30 |
+|  7902 | FORD   | ANALYST   | 7566 | 1981-12-03 | 3000.00 |    NULL |     20 |
+|  7934 | MILLER | CLERK     | 7782 | 1982-01-23 | 1300.00 |    NULL |     10 |
++-------+--------+-----------+------+------------+---------+---------+--------+
+14 rows in set (0.00 sec)
+
+mysql> SELECT EMPNO,ENAME,HIREDATE FROM EMP;
++-------+--------+------------+
+| EMPNO | ENAME  | HIREDATE   |
++-------+--------+------------+
+|  7369 | SMITH  | 1980-12-17 |
+|  7499 | ALLEN  | 1981-02-20 |
+|  7521 | WARD   | 1981-02-22 |
+|  7566 | JONES  | 1981-04-02 |
+|  7654 | MARTIN | 1981-09-28 |
+|  7698 | BLAKE  | 1981-05-01 |
+|  7782 | CLARK  | 1981-06-09 |
+|  7788 | SCOTT  | 1982-12-09 |
+|  7839 | KING   | 1981-11-17 |
+|  7844 | TURNER | 1981-09-08 |
+|  7876 | ADAMS  | 1983-01-12 |
+|  7900 | JAMES  | 1981-12-03 |
+|  7902 | FORD   | 1981-12-03 |
+|  7934 | MILLER | 1982-01-23 |
++-------+--------+------------+
+14 rows in set (0.00 sec)
+
+mysql> SELECT ENAME,HIREDATE,
+    -> TIMESTAMPDIFF(YEAR,HIREDATE,CURDATE()) AS EXPERIENCE
+    -> FROM EMP;
++--------+------------+------------+
+| ENAME  | HIREDATE   | EXPERIENCE |
++--------+------------+------------+
+| SMITH  | 1980-12-17 |         45 |
+| ALLEN  | 1981-02-20 |         45 |
+| WARD   | 1981-02-22 |         45 |
+| JONES  | 1981-04-02 |         45 |
+| MARTIN | 1981-09-28 |         44 |
+| BLAKE  | 1981-05-01 |         45 |
+| CLARK  | 1981-06-09 |         45 |
+| SCOTT  | 1982-12-09 |         43 |
+| KING   | 1981-11-17 |         44 |
+| TURNER | 1981-09-08 |         45 |
+| ADAMS  | 1983-01-12 |         43 |
+| JAMES  | 1981-12-03 |         44 |
+| FORD   | 1981-12-03 |         44 |
+| MILLER | 1982-01-23 |         44 |
++--------+------------+------------+
+14 rows in set (0.00 sec)
+
+mysql> SELECT DEPTNO,YEAR(HIREDATE),COUNT(*)
+    -> FROM EMP
+    -> GROUP BY DEPTNO,YEAR(HIREDATE);
++--------+----------------+----------+
+| DEPTNO | YEAR(HIREDATE) | COUNT(*) |
++--------+----------------+----------+
+|     20 |           1980 |        1 |
+|     30 |           1981 |        6 |
+|     20 |           1981 |        2 |
+|     10 |           1981 |        2 |
+|     20 |           1982 |        1 |
+|     20 |           1983 |        1 |
+|     10 |           1982 |        1 |
++--------+----------------+----------+
+7 rows in set (0.00 sec)
