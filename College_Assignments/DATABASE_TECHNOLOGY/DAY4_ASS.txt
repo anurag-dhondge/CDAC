@@ -1,0 +1,257 @@
+NAME       : ANURAG VILAS DHONDGE 
+
+ROLL   	   : 268013 
+
+BRANCH     : PGCP-AC 
+
+PRN   	   : 260841220030 
+
+ASSIGNMENT : DAY 4 - Create Table Assignment
+------------------------------------------------------------------------------------------------------------------------------------------
+
+Following are the tables:
+BRANCH (BID INTEGER, BRNAME CHAR (30), BRCITY CHAR (10))
+CUSTOMER (CNO INTEGER, CNAME CHAR (20), CADDR CHAR (35), CITY
+CHAR(20))
+LOAN_APPLICATION (LNO INTEGER, LAMTREQUIRED MONEY, LAMTAPPROVED
+MONEY, L_DATE DATE)
+The relationship is as follows:
+BRANCH, CUSTOMER, LOAN_APPLICATION are related with ternary relationship.
+TERNARY (BID INTEGER, CNO INTEGER, LNO INTEGER).
+Solve the Queries
+1. Find the names of the customers for the “Aundh” branch.
+2. List the names of the customers who have received loan less than their requirement.
+3. Find the maximum loan amount approved.
+4. Find out the total loan amount sanctioned by “Deccan “branch.
+5. Count the number of loan applications received by “M.G.ROAD” branch.
+6. List the names of the customer along with the branch names who have applied for
+loan in the month of September.
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+Enter password: *******
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 34
+Server version: 8.0.46 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2026, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+mysql> CREATE DATABASE BANK;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> USE BANK;
+Database changed
+mysql> CREATE TABLE BRANCH(
+    ->  BID INT PRIMARY KEY,
+    ->  BRNAME CHAR(30),
+    ->  BRCITY CHAR(10)
+    -> );
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> CREATE TABLE CUSTOMER (
+    ->     CNO INT PRIMARY KEY,
+    ->     CNAME CHAR(20),
+    ->     CADDR CHAR(35),
+    ->     CITY CHAR(20)
+    -> );
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> CREATE TABLE LOAN_APPLICATION (
+    ->     LNO INT PRIMARY KEY,
+    ->     LAMTREQUIRED DECIMAL(12,2),
+    ->     LAMTAPPROVED DECIMAL(12,2),
+    ->     L_DATE DATE
+    -> );
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> CREATE TABLE TERNARY (
+    ->     BID INT,
+    ->     CNO INT,
+    ->     LNO INT,
+    ->     PRIMARY KEY (BID, CNO, LNO),
+    ->     FOREIGN KEY (BID) REFERENCES BRANCH(BID),
+    ->     FOREIGN KEY (CNO) REFERENCES CUSTOMER(CNO),
+    ->     FOREIGN KEY (LNO) REFERENCES LOAN_APPLICATION(LNO)
+    -> );
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> SHOW TABLES;
++------------------+
+| Tables_in_bank   |
++------------------+
+| branch           |
+| customer         |
+| loan_application |
+| ternary          |
++------------------+
+4 rows in set (0.00 sec)
+
+mysql> SELECT C.CNAME FROM CUSTOMER C
+    -> JOIN TERNARY T ON C.CNO = T.CNO
+    -> JOIN BRANCH B ON T.BID = B.BID
+    -> WHERE B.BRNAME = 'Aundh';
+Empty set (0.01 sec)
+
+mysql> INSERT INTO BRANCH VALUES
+    -> (1, 'Aundh', 'Pune'),
+    -> (2, 'Deccan', 'Pune'),
+    -> (3, 'M.G.ROAD', 'Pune'),
+    -> (4, 'Kothrud', 'Pune');
+Query OK, 4 rows affected (0.02 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+mysql> INSERT INTO CUSTOMER VALUES
+    -> (101, 'Anurag', 'Pune', 'Pune'),
+    -> (102, 'Rahul', 'Mumbai', 'Mumbai'),
+    -> (103, 'Amit', 'Nashik', 'Nashik'),
+    -> (104, 'Sneha', 'Pune', 'Pune'),
+    -> (105, 'Priya', 'Nagpur', 'Nagpur');
+Query OK, 5 rows affected (0.00 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+mysql> INSERT INTO LOAN_APPLICATION VALUES
+    -> (1001, 500000, 400000, '2026-09-05'),
+    -> (1002, 300000, 300000, '2026-08-15'),
+    -> (1003, 800000, 600000, '2026-09-10'),
+    -> (1004, 400000, 350000, '2026-07-20'),
+    -> (1005, 1000000, 750000, '2026-09-18');
+Query OK, 5 rows affected (0.02 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+mysql> INSERT INTO TERNARY VALUES
+    -> (1, 101, 1001),
+    -> (2, 102, 1002),
+    -> (2, 103, 1003),
+    -> (3, 104, 1004),
+    -> (3, 105, 1005);
+Query OK, 5 rows affected (0.00 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+mysql> SELECT * FROM BRANCH;
++-----+----------+--------+
+| BID | BRNAME   | BRCITY |
++-----+----------+--------+
+|   1 | Aundh    | Pune   |
+|   2 | Deccan   | Pune   |
+|   3 | M.G.ROAD | Pune   |
+|   4 | Kothrud  | Pune   |
++-----+----------+--------+
+4 rows in set (0.00 sec)
+
+mysql> SELECT * FROM CUSTOMER;
++-----+--------+--------+--------+
+| CNO | CNAME  | CADDR  | CITY   |
++-----+--------+--------+--------+
+| 101 | Anurag | Pune   | Pune   |
+| 102 | Rahul  | Mumbai | Mumbai |
+| 103 | Amit   | Nashik | Nashik |
+| 104 | Sneha  | Pune   | Pune   |
+| 105 | Priya  | Nagpur | Nagpur |
++-----+--------+--------+--------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT * FROM LOAN_APPLICATION;
++------+--------------+--------------+------------+
+| LNO  | LAMTREQUIRED | LAMTAPPROVED | L_DATE     |
++------+--------------+--------------+------------+
+| 1001 |    500000.00 |    400000.00 | 2026-09-05 |
+| 1002 |    300000.00 |    300000.00 | 2026-08-15 |
+| 1003 |    800000.00 |    600000.00 | 2026-09-10 |
+| 1004 |    400000.00 |    350000.00 | 2026-07-20 |
+| 1005 |   1000000.00 |    750000.00 | 2026-09-18 |
++------+--------------+--------------+------------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT * FROM TERNARY;
++-----+-----+------+
+| BID | CNO | LNO  |
++-----+-----+------+
+|   1 | 101 | 1001 |
+|   2 | 102 | 1002 |
+|   2 | 103 | 1003 |
+|   3 | 104 | 1004 |
+|   3 | 105 | 1005 |
++-----+-----+------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT C.CNAME
+    -> FROM CUSTOMER C
+    -> JOIN TERNARY T ON C.CNO = T.CNO
+    -> JOIN BRANCH B ON T.BID = B.BID
+    -> WHERE B.BRNAME = 'Aundh';
++--------+
+| CNAME  |
++--------+
+| Anurag |
++--------+
+1 row in set (0.01 sec)
+
+mysql> SELECT C.CNAME
+    -> FROM CUSTOMER C
+    -> JOIN TERNARY T ON C.CNO = T.CNO
+    -> JOIN LOAN_APPLICATION L ON T.LNO = L.LNO
+    -> WHERE L.LAMTAPPROVED < L.LAMTREQUIRED;
++--------+
+| CNAME  |
++--------+
+| Anurag |
+| Amit   |
+| Sneha  |
+| Priya  |
++--------+
+4 rows in set (0.00 sec)
+
+mysql> SELECT MAX(LAMTAPPROVED) AS MAX_LOAN_APPROVED
+    -> FROM LOAN_APPLICATION;
++-------------------+
+| MAX_LOAN_APPROVED |
++-------------------+
+|         750000.00 |
++-------------------+
+1 row in set (0.01 sec)
+
+mysql> SELECT SUM(L.LAMTAPPROVED) AS TOTAL_LOAN_SANCTIONED
+    -> FROM LOAN_APPLICATION L
+    -> JOIN TERNARY T ON L.LNO = T.LNO
+    -> JOIN BRANCH B ON T.BID = B.BID
+    -> WHERE B.BRNAME = 'Deccan';
++-----------------------+
+| TOTAL_LOAN_SANCTIONED |
++-----------------------+
+|             900000.00 |
++-----------------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT COUNT(T.LNO) AS NUMBER_OF_LOAN_APPLICATIONS
+    -> FROM TERNARY T
+    -> JOIN BRANCH B ON T.BID = B.BID
+    -> WHERE B.BRNAME = 'M.G.ROAD';
++-----------------------------+
+| NUMBER_OF_LOAN_APPLICATIONS |
++-----------------------------+
+|                           2 |
++-----------------------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT C.CNAME, B.BRNAME
+    -> FROM CUSTOMER C
+    -> JOIN TERNARY T ON C.CNO = T.CNO
+    -> JOIN BRANCH B ON T.BID = B.BID
+    -> JOIN LOAN_APPLICATION L ON T.LNO = L.LNO
+    -> WHERE MONTH(L.L_DATE) = 9;
++--------+----------+
+| CNAME  | BRNAME   |
++--------+----------+
+| Anurag | Aundh    |
+| Amit   | Deccan   |
+| Priya  | M.G.ROAD |
++--------+----------+
+3 rows in set (0.00 sec)

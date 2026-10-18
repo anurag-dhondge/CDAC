@@ -1,0 +1,910 @@
+NAME  : ANURAG VILAS DHONDGE 
+
+ROLL : 268013 
+
+BRANCH PGCP-AC 
+
+PRN : 260841220030 
+
+ASSIGNMENT : DAY 1 - Product & Category Assignment Database
+
+------------------------------------------------------------------------------------ 
+
+QUESTION:  
+
+-- Product & Category Assignment Database 
+-- MySQL 
+ 
+DROP DATABASE IF EXISTS product_assignment; 
+CREATE DATABASE product_assignment; 
+USE product_assignment; 
+ 
+CREATE TABLE category ( 
+    cid INT PRIMARY KEY, 
+    category VARCHAR(50) NOT NULL, 
+    description VARCHAR(255) 
+); 
+ 
+CREATE TABLE product ( 
+    pid INT PRIMARY KEY, 
+    pname VARCHAR(100) NOT NULL, 
+    qty INT NOT NULL, 
+    mfgdate DATE NOT NULL, 
+    expdate DATE NOT NULL, 
+    cid INT, 
+    FOREIGN KEY (cid) REFERENCES category(cid) 
+); 
+ 
+INSERT INTO category (cid, category, description) VALUES 
+(1, 'Electronics', 'Electronic devices and accessories'), 
+(2, 'Grocery', 'Food and household grocery items'), 
+(3, 'Stationery', 'Office and educational stationery'), 
+(4, 'Cosmetics', 'Personal care and beauty products'), 
+(5, 'Sports', 'Sports and fitness products'), 
+(6, 'Home Appliances', 'Appliances used at home'); 
+ 
+INSERT INTO product (pid, pname, qty, mfgdate, expdate, cid) VALUES 
+(101, 'Wireless Mouse', 25, '2025-01-10', '2028-01-09', 1), 
+(102, 'Keyboard', 15, '2025-02-15', '2028-02-14', 1), 
+(103, 'USB Cable', 40, '2025-03-01', '2028-02-28', 1), 
+(104, 'Notebook', 100, '2025-01-05', '2030-01-04', 3), 
+(105, 'Pen Pack', 60, '2025-04-10', '2028-04-09', 3), 
+(106, 'Basmati Rice', 50, '2025-05-12', '2027-05-11', 2), 
+(107, 'Cooking Oil', 35, '2025-06-20', '2027-06-19', 2), 
+(108, 'Shampoo', 20, '2025-02-25', '2027-02-24', 4), 
+(109, 'Face Wash', 18, '2025-03-18', '2027-03-17', 4), 
+(110, 'Football', 12, '2025-01-20', '2029-01-19', 5), 
+(111, 'Cricket Bat', 8, '2025-02-08', '2029-02-07', 5), 
+(112, 'Mixer Grinder', 10, '2025-04-15', '2029-04-14', 6), 
+(113, 'Electric Kettle', 14, '2025-05-05', '2029-05-04', 6), 
+(114, 'Power Bank', 22, '2025-06-10', '2028-06-09', 1), 
+(115, 'Marker Set', 45, '2025-07-01', '2028-06-30', 3), 
+(116, 'Toothpaste', 30, '2025-07-15', '2027-07-14', 4), 
+(117, 'Green Tea', 25, '2025-08-05', '2027-08-04', 2), 
+(118, 'Yoga Mat', 16, '2025-08-20', '2029-08-19', 5), 
+(119, 'Air Fryer', 7, '2025-09-01', '2029-08-31', 6), 
+(120, 'Webcam', 11, '2025-09-15', '2028-09-14', 1); 
+ 
+-- Assignment: Write SQL queries for the following questions. 
+-- Do not use JOIN, subqueries, aggregate/string/date functions, GROUP BY, HAVING, or ORDER BY 
+-- unless specifically covered separately by your trainer. 
+ 
+ 
+PRODUCT & CATEGORY SQL ASSIGNMENT 
+================================ 
+ 
+Tables: 
+1. category(cid, category, description) 
+2. product(pid, pname, qty, mfgdate, expdate, cid) 
+ 
+Instructions: 
+- Write one SQL SELECT query for each question. 
+- Do NOT use JOINs. 
+- Do NOT use nested/subqueries. 
+- Do NOT use SQL functions. 
+- Practice arithmetic operators (+, -, *, /, %), comparison operators, 
+  logical operators (AND, OR, NOT), BETWEEN, IN, and related operators. 
+- Use only the two tables given above. 
+ 
+20 QUESTIONS 
+------------ 
+ 
+1. Display the product name and quantity of all products whose quantity is 
+   greater than 20. 
+ 
+2. Display pid, pname and qty for products whose quantity is less than or 
+   equal to 15. 
+ 
+3. Display pname and a calculated column showing the quantity after adding 
+   10 units to the current quantity. 
+ 
+4. Display pname and a calculated column showing the quantity after removing 
+   5 units from the current quantity. 
+ 
+5. Display pname and a calculated column showing double the current quantity. 
+ 
+6. Display pname and a calculated column showing half of the current quantity. 
+ 
+7. Display pid, pname and qty for products whose quantity is between 10 and 30. 
+ 
+8. Display all products whose quantity is NOT between 10 and 30. 
+ 
+9. Display products belonging to category IDs 1, 3, or 5 using the IN 
+   operator. 
+ 
+10. Display products whose category ID is NOT IN 2, 4, and 6. 
+ 
+11. Display products whose quantity is greater than 20 AND category ID is 1. 
+ 
+12. Display products whose quantity is less than 20 OR category ID is 5. 
+ 
+13. Display products whose quantity is between 10 and 30 AND category ID is 
+    either 1 or 3. 
+ 
+14. Display products whose quantity is greater than 40 OR quantity is less 
+    than 10. 
+ 
+15. Display products whose quantity is greater than 15 AND quantity is less 
+    than 50 AND category ID is 1. 
+ 
+16. Display products manufactured between '2025-02-01' and '2025-06-30' 
+    using the BETWEEN operator. 
+ 
+17. Display products whose expiry date is NOT between '2027-01-01' and 
+    '2028-12-31'. 
+ 
+18. Display products whose quantity, when divided by 5, has remainder 0. 
+    Use the modulo (%) operator. 
+ 
+19. Display products whose quantity is greater than 20 AND whose category ID 
+    is NOT 2. 
+ 
+20. Display products where either: 
+       - quantity is between 10 and 20 AND category ID is 1, 
+       OR 
+       - quantity is between 30 and 50 AND category ID is 2. 
+ 
+       LIKE Operator Practice Questions 
+Display all products whose pname starts with 'W'. 
+Display all products whose pname ends with 'e'. 
+Display all products whose pname contains the letter 'a'. 
+Display all products whose pname contains the word 'Wash'. 
+Display all products whose pname starts with 'C' and has any number of characters after it. 
+Display all products whose pname has exactly 6 characters. 
+Display all products whose pname has exactly 5 characters. 
+Display all products whose pname has 'e' as the second character. 
+Display all products whose pname has 'a' as the third character. 
+Display all products whose pname starts with 'P' and ends with 'k'. 
+Display all products whose pname contains 'er' anywhere in the name. 
+Display all products whose pname starts with either 'M' or 'W'. 
+Display all products whose pname does not start with 'W'. 
+Display all products whose pname does not contain the letter 'a'. 
+Display pid, pname, and qty for products whose name starts with 'E' and quantity is greater than 10. 
+Display products whose name contains 'a' and whose cid is either 1 or 5. 
+Display products whose name starts with 'S' OR whose name ends with 'e'. 
+Display products whose name contains 'o' AND quantity is between 10 and 30. 
+Display products whose name starts with 'C' but does not contain 'r'. 
+Display products whose name contains 'a' OR 'e', and whose quantity is greater than 20. 
+Find products whose name starts with 'M' or 'P'. 
+Find products whose name contains 'a' or 'e'. 
+Find products whose name ends with 'e' or 't'. 
+
+----------------------------------------------------------------------------------------------------------------
+
+Enter password: *******
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 21
+Server version: 8.0.46 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2026, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+-------------------------------------------------------------------------------------------------------------------
+
+mysql> DROP DATABASE IF EXISTS product_assignment;
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+mysql> CREATE DATABASE product_assignment;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> USE product_assignment;
+Database changed
+mysql>
+mysql> CREATE TABLE category (
+    ->     cid INT PRIMARY KEY,
+    ->     category VARCHAR(50) NOT NULL,
+    ->     description VARCHAR(255)
+    -> );
+Query OK, 0 rows affected (0.01 sec)
+
+mysql>
+mysql> CREATE TABLE product (
+    ->     pid INT PRIMARY KEY,
+    ->     pname VARCHAR(100) NOT NULL,
+    ->     qty INT NOT NULL,
+    ->     mfgdate DATE NOT NULL,
+    ->     expdate DATE NOT NULL,
+    ->     cid INT,
+    ->     FOREIGN KEY (cid) REFERENCES category(cid)
+    -> );
+Query OK, 0 rows affected (0.01 sec)
+
+mysql>
+mysql> INSERT INTO category (cid, category, description) VALUES
+    -> (1, 'Electronics', 'Electronic devices and accessories'),
+    -> (2, 'Grocery', 'Food and household grocery items'),
+    -> (3, 'Stationery', 'Office and educational stationery'),
+    -> (4, 'Cosmetics', 'Personal care and beauty products'),
+    -> (5, 'Sports', 'Sports and fitness products'),
+    -> (6, 'Home Appliances', 'Appliances used at home');
+Query OK, 6 rows affected (0.00 sec)
+Records: 6  Duplicates: 0  Warnings: 0
+
+mysql>
+mysql> INSERT INTO product (pid, pname, qty, mfgdate, expdate, cid) VALUES
+    -> (101, 'Wireless Mouse', 25, '2025-01-10', '2028-01-09', 1),
+    -> (102, 'Keyboard', 15, '2025-02-15', '2028-02-14', 1),
+    -> (103, 'USB Cable', 40, '2025-03-01', '2028-02-28', 1),
+    -> (104, 'Notebook', 100, '2025-01-05', '2030-01-04', 3),
+    -> (105, 'Pen Pack', 60, '2025-04-10', '2028-04-09', 3),
+    -> (106, 'Basmati Rice', 50, '2025-05-12', '2027-05-11', 2),
+    -> (107, 'Cooking Oil', 35, '2025-06-20', '2027-06-19', 2),
+    -> (108, 'Shampoo', 20, '2025-02-25', '2027-02-24', 4),
+    -> (109, 'Face Wash', 18, '2025-03-18', '2027-03-17', 4),
+    -> (110, 'Football', 12, '2025-01-20', '2029-01-19', 5),
+    -> (111, 'Cricket Bat', 8, '2025-02-08', '2029-02-07', 5),
+    -> (112, 'Mixer Grinder', 10, '2025-04-15', '2029-04-14', 6),
+    -> (113, 'Electric Kettle', 14, '2025-05-05', '2029-05-04', 6),
+    -> (114, 'Power Bank', 22, '2025-06-10', '2028-06-09', 1),
+    -> (115, 'Marker Set', 45, '2025-07-01', '2028-06-30', 3),
+    -> (116, 'Toothpaste', 30, '2025-07-15', '2027-07-14', 4),
+    -> (117, 'Green Tea', 25, '2025-08-05', '2027-08-04', 2),
+    -> (118, 'Yoga Mat', 16, '2025-08-20', '2029-08-19', 5),
+    -> (119, 'Air Fryer', 7, '2025-09-01', '2029-08-31', 6),
+    -> (120, 'Webcam', 11, '2025-09-15', '2028-09-14', 1);
+Query OK, 20 rows affected (0.00 sec)
+Records: 20  Duplicates: 0  Warnings: 0
+------------------------------------------------------------------------------------------
+mysql> SELECT PNAME , QTY FROM PRODUCT WHERE QTY > 20;
++----------------+-----+
+| PNAME          | QTY |
++----------------+-----+
+| Wireless Mouse |  25 |
+| USB Cable      |  40 |
+| Notebook       | 100 |
+| Pen Pack       |  60 |
+| Basmati Rice   |  50 |
+| Cooking Oil    |  35 |
+| Power Bank     |  22 |
+| Marker Set     |  45 |
+| Toothpaste     |  30 |
+| Green Tea      |  25 |
++----------------+-----+
+10 rows in set (0.00 sec)
+
+mysql> SELECT PID, PNAME , QTY FROM PRODUCT WHERE QTY <= 15;
++-----+-----------------+-----+
+| PID | PNAME           | QTY |
++-----+-----------------+-----+
+| 102 | Keyboard        |  15 |
+| 110 | Football        |  12 |
+| 111 | Cricket Bat     |   8 |
+| 112 | Mixer Grinder   |  10 |
+| 113 | Electric Kettle |  14 |
+| 119 | Air Fryer       |   7 |
+| 120 | Webcam          |  11 |
++-----+-----------------+-----+
+7 rows in set (0.00 sec)
+
+mysql> SELECT PNAME , QTY + 10 AS CALCULATED_COLUMN FROM PRODUCT;
++-----------------+-------------------+
+| PNAME           | CALCULATED_COLUMN |
++-----------------+-------------------+
+| Wireless Mouse  |                35 |
+| Keyboard        |                25 |
+| USB Cable       |                50 |
+| Notebook        |               110 |
+| Pen Pack        |                70 |
+| Basmati Rice    |                60 |
+| Cooking Oil     |                45 |
+| Shampoo         |                30 |
+| Face Wash       |                28 |
+| Football        |                22 |
+| Cricket Bat     |                18 |
+| Mixer Grinder   |                20 |
+| Electric Kettle |                24 |
+| Power Bank      |                32 |
+| Marker Set      |                55 |
+| Toothpaste      |                40 |
+| Green Tea       |                35 |
+| Yoga Mat        |                26 |
+| Air Fryer       |                17 |
+| Webcam          |                21 |
++-----------------+-------------------+
+20 rows in set (0.00 sec)
+
+mysql> SELECT PNAME , QTY - 5 AS CALCULATED_COLUMN FROM PRODUCT;
++-----------------+-------------------+
+| PNAME           | CALCULATED_COLUMN |
++-----------------+-------------------+
+| Wireless Mouse  |                20 |
+| Keyboard        |                10 |
+| USB Cable       |                35 |
+| Notebook        |                95 |
+| Pen Pack        |                55 |
+| Basmati Rice    |                45 |
+| Cooking Oil     |                30 |
+| Shampoo         |                15 |
+| Face Wash       |                13 |
+| Football        |                 7 |
+| Cricket Bat     |                 3 |
+| Mixer Grinder   |                 5 |
+| Electric Kettle |                 9 |
+| Power Bank      |                17 |
+| Marker Set      |                40 |
+| Toothpaste      |                25 |
+| Green Tea       |                20 |
+| Yoga Mat        |                11 |
+| Air Fryer       |                 2 |
+| Webcam          |                 6 |
++-----------------+-------------------+
+20 rows in set (0.00 sec)
+
+mysql> SELECT PNAME , QTY * 2 AS CALCULATED_COLUMN FROM PRODUCT;
++-----------------+-------------------+
+| PNAME           | CALCULATED_COLUMN |
++-----------------+-------------------+
+| Wireless Mouse  |                50 |
+| Keyboard        |                30 |
+| USB Cable       |                80 |
+| Notebook        |               200 |
+| Pen Pack        |               120 |
+| Basmati Rice    |               100 |
+| Cooking Oil     |                70 |
+| Shampoo         |                40 |
+| Face Wash       |                36 |
+| Football        |                24 |
+| Cricket Bat     |                16 |
+| Mixer Grinder   |                20 |
+| Electric Kettle |                28 |
+| Power Bank      |                44 |
+| Marker Set      |                90 |
+| Toothpaste      |                60 |
+| Green Tea       |                50 |
+| Yoga Mat        |                32 |
+| Air Fryer       |                14 |
+| Webcam          |                22 |
++-----------------+-------------------+
+20 rows in set (0.00 sec)
+
+mysql> SELECT PNAME , QTY / 2 AS CALCULATED_COLUMN FROM PRODUCT;
++-----------------+-------------------+
+| PNAME           | CALCULATED_COLUMN |
++-----------------+-------------------+
+| Wireless Mouse  |           12.5000 |
+| Keyboard        |            7.5000 |
+| USB Cable       |           20.0000 |
+| Notebook        |           50.0000 |
+| Pen Pack        |           30.0000 |
+| Basmati Rice    |           25.0000 |
+| Cooking Oil     |           17.5000 |
+| Shampoo         |           10.0000 |
+| Face Wash       |            9.0000 |
+| Football        |            6.0000 |
+| Cricket Bat     |            4.0000 |
+| Mixer Grinder   |            5.0000 |
+| Electric Kettle |            7.0000 |
+| Power Bank      |           11.0000 |
+| Marker Set      |           22.5000 |
+| Toothpaste      |           15.0000 |
+| Green Tea       |           12.5000 |
+| Yoga Mat        |            8.0000 |
+| Air Fryer       |            3.5000 |
+| Webcam          |            5.5000 |
++-----------------+-------------------+
+20 rows in set (0.00 sec)
+
+mysql> SELECT PID, PNAME , QTY FROM PRODUCT WHERE QTY BETWEEN 10 AND 30;
++-----+-----------------+-----+
+| PID | PNAME           | QTY |
++-----+-----------------+-----+
+| 101 | Wireless Mouse  |  25 |
+| 102 | Keyboard        |  15 |
+| 108 | Shampoo         |  20 |
+| 109 | Face Wash       |  18 |
+| 110 | Football        |  12 |
+| 112 | Mixer Grinder   |  10 |
+| 113 | Electric Kettle |  14 |
+| 114 | Power Bank      |  22 |
+| 116 | Toothpaste      |  30 |
+| 117 | Green Tea       |  25 |
+| 118 | Yoga Mat        |  16 |
+| 120 | Webcam          |  11 |
++-----+-----------------+-----+
+12 rows in set (0.00 sec)
+
+mysql> SELECT * FROM PRODUCT WHERE QTY NOT BETWEEN 10 AND 30;
++-----+--------------+-----+------------+------------+------+
+| pid | pname        | qty | mfgdate    | expdate    | cid  |
++-----+--------------+-----+------------+------------+------+
+| 103 | USB Cable    |  40 | 2025-03-01 | 2028-02-28 |    1 |
+| 104 | Notebook     | 100 | 2025-01-05 | 2030-01-04 |    3 |
+| 105 | Pen Pack     |  60 | 2025-04-10 | 2028-04-09 |    3 |
+| 106 | Basmati Rice |  50 | 2025-05-12 | 2027-05-11 |    2 |
+| 107 | Cooking Oil  |  35 | 2025-06-20 | 2027-06-19 |    2 |
+| 111 | Cricket Bat  |   8 | 2025-02-08 | 2029-02-07 |    5 |
+| 115 | Marker Set   |  45 | 2025-07-01 | 2028-06-30 |    3 |
+| 119 | Air Fryer    |   7 | 2025-09-01 | 2029-08-31 |    6 |
++-----+--------------+-----+------------+------------+------+
+8 rows in set (0.00 sec)
+
+mysql> SELECT * FROM PRODUCT WHERE CID IN (1,3,5);
++-----+----------------+-----+------------+------------+------+
+| pid | pname          | qty | mfgdate    | expdate    | cid  |
++-----+----------------+-----+------------+------------+------+
+| 101 | Wireless Mouse |  25 | 2025-01-10 | 2028-01-09 |    1 |
+| 102 | Keyboard       |  15 | 2025-02-15 | 2028-02-14 |    1 |
+| 103 | USB Cable      |  40 | 2025-03-01 | 2028-02-28 |    1 |
+| 104 | Notebook       | 100 | 2025-01-05 | 2030-01-04 |    3 |
+| 105 | Pen Pack       |  60 | 2025-04-10 | 2028-04-09 |    3 |
+| 110 | Football       |  12 | 2025-01-20 | 2029-01-19 |    5 |
+| 111 | Cricket Bat    |   8 | 2025-02-08 | 2029-02-07 |    5 |
+| 114 | Power Bank     |  22 | 2025-06-10 | 2028-06-09 |    1 |
+| 115 | Marker Set     |  45 | 2025-07-01 | 2028-06-30 |    3 |
+| 118 | Yoga Mat       |  16 | 2025-08-20 | 2029-08-19 |    5 |
+| 120 | Webcam         |  11 | 2025-09-15 | 2028-09-14 |    1 |
++-----+----------------+-----+------------+------------+------+
+11 rows in set (0.00 sec)
+
+mysql> SELECT * FROM PRODUCT WHERE CID NOT IN (2,4,6);
++-----+----------------+-----+------------+------------+------+
+| pid | pname          | qty | mfgdate    | expdate    | cid  |
++-----+----------------+-----+------------+------------+------+
+| 101 | Wireless Mouse |  25 | 2025-01-10 | 2028-01-09 |    1 |
+| 102 | Keyboard       |  15 | 2025-02-15 | 2028-02-14 |    1 |
+| 103 | USB Cable      |  40 | 2025-03-01 | 2028-02-28 |    1 |
+| 104 | Notebook       | 100 | 2025-01-05 | 2030-01-04 |    3 |
+| 105 | Pen Pack       |  60 | 2025-04-10 | 2028-04-09 |    3 |
+| 110 | Football       |  12 | 2025-01-20 | 2029-01-19 |    5 |
+| 111 | Cricket Bat    |   8 | 2025-02-08 | 2029-02-07 |    5 |
+| 114 | Power Bank     |  22 | 2025-06-10 | 2028-06-09 |    1 |
+| 115 | Marker Set     |  45 | 2025-07-01 | 2028-06-30 |    3 |
+| 118 | Yoga Mat       |  16 | 2025-08-20 | 2029-08-19 |    5 |
+| 120 | Webcam         |  11 | 2025-09-15 | 2028-09-14 |    1 |
++-----+----------------+-----+------------+------------+------+
+11 rows in set (0.00 sec)
+
+mysql> SELECT * FROM PRODUCT WHERE QTY > 20 AND CID = 1;
++-----+----------------+-----+------------+------------+------+
+| pid | pname          | qty | mfgdate    | expdate    | cid  |
++-----+----------------+-----+------------+------------+------+
+| 101 | Wireless Mouse |  25 | 2025-01-10 | 2028-01-09 |    1 |
+| 103 | USB Cable      |  40 | 2025-03-01 | 2028-02-28 |    1 |
+| 114 | Power Bank     |  22 | 2025-06-10 | 2028-06-09 |    1 |
++-----+----------------+-----+------------+------------+------+
+3 rows in set (0.00 sec)
+
+mysql> SELECT * FROM PRODUCT WHERE QTY < 20 OR CID = 5;
++-----+-----------------+-----+------------+------------+------+
+| pid | pname           | qty | mfgdate    | expdate    | cid  |
++-----+-----------------+-----+------------+------------+------+
+| 102 | Keyboard        |  15 | 2025-02-15 | 2028-02-14 |    1 |
+| 109 | Face Wash       |  18 | 2025-03-18 | 2027-03-17 |    4 |
+| 110 | Football        |  12 | 2025-01-20 | 2029-01-19 |    5 |
+| 111 | Cricket Bat     |   8 | 2025-02-08 | 2029-02-07 |    5 |
+| 112 | Mixer Grinder   |  10 | 2025-04-15 | 2029-04-14 |    6 |
+| 113 | Electric Kettle |  14 | 2025-05-05 | 2029-05-04 |    6 |
+| 118 | Yoga Mat        |  16 | 2025-08-20 | 2029-08-19 |    5 |
+| 119 | Air Fryer       |   7 | 2025-09-01 | 2029-08-31 |    6 |
+| 120 | Webcam          |  11 | 2025-09-15 | 2028-09-14 |    1 |
++-----+-----------------+-----+------------+------------+------+
+9 rows in set (0.00 sec)
+
+mysql> SELECT * FROM PRODUCT WHERE QTY BETWEEN 10 AND 30 AND CID IN (1,3);
++-----+----------------+-----+------------+------------+------+
+| pid | pname          | qty | mfgdate    | expdate    | cid  |
++-----+----------------+-----+------------+------------+------+
+| 101 | Wireless Mouse |  25 | 2025-01-10 | 2028-01-09 |    1 |
+| 102 | Keyboard       |  15 | 2025-02-15 | 2028-02-14 |    1 |
+| 114 | Power Bank     |  22 | 2025-06-10 | 2028-06-09 |    1 |
+| 120 | Webcam         |  11 | 2025-09-15 | 2028-09-14 |    1 |
++-----+----------------+-----+------------+------------+------+
+4 rows in set (0.00 sec)
+
+mysql> SELECT * FROM PRODUCT WHERE QTY NOT BETWEEN 10 AND 40;
++-----+--------------+-----+------------+------------+------+
+| pid | pname        | qty | mfgdate    | expdate    | cid  |
++-----+--------------+-----+------------+------------+------+
+| 104 | Notebook     | 100 | 2025-01-05 | 2030-01-04 |    3 |
+| 105 | Pen Pack     |  60 | 2025-04-10 | 2028-04-09 |    3 |
+| 106 | Basmati Rice |  50 | 2025-05-12 | 2027-05-11 |    2 |
+| 111 | Cricket Bat  |   8 | 2025-02-08 | 2029-02-07 |    5 |
+| 115 | Marker Set   |  45 | 2025-07-01 | 2028-06-30 |    3 |
+| 119 | Air Fryer    |   7 | 2025-09-01 | 2029-08-31 |    6 |
++-----+--------------+-----+------------+------------+------+
+6 rows in set (0.00 sec)
+
+mysql> SELECT * FROM PRODUCT WHERE QTY BETWEEN 15 AND 50 AND CID = 1;
++-----+----------------+-----+------------+------------+------+
+| pid | pname          | qty | mfgdate    | expdate    | cid  |
++-----+----------------+-----+------------+------------+------+
+| 101 | Wireless Mouse |  25 | 2025-01-10 | 2028-01-09 |    1 |
+| 102 | Keyboard       |  15 | 2025-02-15 | 2028-02-14 |    1 |
+| 103 | USB Cable      |  40 | 2025-03-01 | 2028-02-28 |    1 |
+| 114 | Power Bank     |  22 | 2025-06-10 | 2028-06-09 |    1 |
++-----+----------------+-----+------------+------------+------+
+4 rows in set (0.00 sec)
+
+mysql> SELECT * FROM PRODUCT WHERE MFGDATE BETWEEN '2025-02-01' AND '2025-06-30';
++-----+-----------------+-----+------------+------------+------+
+| pid | pname           | qty | mfgdate    | expdate    | cid  |
++-----+-----------------+-----+------------+------------+------+
+| 102 | Keyboard        |  15 | 2025-02-15 | 2028-02-14 |    1 |
+| 103 | USB Cable       |  40 | 2025-03-01 | 2028-02-28 |    1 |
+| 105 | Pen Pack        |  60 | 2025-04-10 | 2028-04-09 |    3 |
+| 106 | Basmati Rice    |  50 | 2025-05-12 | 2027-05-11 |    2 |
+| 107 | Cooking Oil     |  35 | 2025-06-20 | 2027-06-19 |    2 |
+| 108 | Shampoo         |  20 | 2025-02-25 | 2027-02-24 |    4 |
+| 109 | Face Wash       |  18 | 2025-03-18 | 2027-03-17 |    4 |
+| 111 | Cricket Bat     |   8 | 2025-02-08 | 2029-02-07 |    5 |
+| 112 | Mixer Grinder   |  10 | 2025-04-15 | 2029-04-14 |    6 |
+| 113 | Electric Kettle |  14 | 2025-05-05 | 2029-05-04 |    6 |
+| 114 | Power Bank      |  22 | 2025-06-10 | 2028-06-09 |    1 |
++-----+-----------------+-----+------------+------------+------+
+11 rows in set (0.00 sec)
+
+mysql> SELECT * FROM PRODUCT WHERE EXPDATE NOT BETWEEN '2027-01-01' AND '2028-12-31';
++-----+-----------------+-----+------------+------------+------+
+| pid | pname           | qty | mfgdate    | expdate    | cid  |
++-----+-----------------+-----+------------+------------+------+
+| 104 | Notebook        | 100 | 2025-01-05 | 2030-01-04 |    3 |
+| 110 | Football        |  12 | 2025-01-20 | 2029-01-19 |    5 |
+| 111 | Cricket Bat     |   8 | 2025-02-08 | 2029-02-07 |    5 |
+| 112 | Mixer Grinder   |  10 | 2025-04-15 | 2029-04-14 |    6 |
+| 113 | Electric Kettle |  14 | 2025-05-05 | 2029-05-04 |    6 |
+| 118 | Yoga Mat        |  16 | 2025-08-20 | 2029-08-19 |    5 |
+| 119 | Air Fryer       |   7 | 2025-09-01 | 2029-08-31 |    6 |
++-----+-----------------+-----+------------+------------+------+
+7 rows in set (0.00 sec)
+
+mysql> SELECT * FROM PRODUCT WHERE QTY % 5 = 0;
++-----+----------------+-----+------------+------------+------+
+| pid | pname          | qty | mfgdate    | expdate    | cid  |
++-----+----------------+-----+------------+------------+------+
+| 101 | Wireless Mouse |  25 | 2025-01-10 | 2028-01-09 |    1 |
+| 102 | Keyboard       |  15 | 2025-02-15 | 2028-02-14 |    1 |
+| 103 | USB Cable      |  40 | 2025-03-01 | 2028-02-28 |    1 |
+| 104 | Notebook       | 100 | 2025-01-05 | 2030-01-04 |    3 |
+| 105 | Pen Pack       |  60 | 2025-04-10 | 2028-04-09 |    3 |
+| 106 | Basmati Rice   |  50 | 2025-05-12 | 2027-05-11 |    2 |
+| 107 | Cooking Oil    |  35 | 2025-06-20 | 2027-06-19 |    2 |
+| 108 | Shampoo        |  20 | 2025-02-25 | 2027-02-24 |    4 |
+| 112 | Mixer Grinder  |  10 | 2025-04-15 | 2029-04-14 |    6 |
+| 115 | Marker Set     |  45 | 2025-07-01 | 2028-06-30 |    3 |
+| 116 | Toothpaste     |  30 | 2025-07-15 | 2027-07-14 |    4 |
+| 117 | Green Tea      |  25 | 2025-08-05 | 2027-08-04 |    2 |
++-----+----------------+-----+------------+------------+------+
+12 rows in set (0.00 sec)
+
+mysql> SELECT * FROM PRODUCT WHERE QTY > 20 AND CID != 2;
++-----+----------------+-----+------------+------------+------+
+| pid | pname          | qty | mfgdate    | expdate    | cid  |
++-----+----------------+-----+------------+------------+------+
+| 101 | Wireless Mouse |  25 | 2025-01-10 | 2028-01-09 |    1 |
+| 103 | USB Cable      |  40 | 2025-03-01 | 2028-02-28 |    1 |
+| 104 | Notebook       | 100 | 2025-01-05 | 2030-01-04 |    3 |
+| 105 | Pen Pack       |  60 | 2025-04-10 | 2028-04-09 |    3 |
+| 114 | Power Bank     |  22 | 2025-06-10 | 2028-06-09 |    1 |
+| 115 | Marker Set     |  45 | 2025-07-01 | 2028-06-30 |    3 |
+| 116 | Toothpaste     |  30 | 2025-07-15 | 2027-07-14 |    4 |
++-----+----------------+-----+------------+------------+------+
+7 rows in set (0.00 sec)
+
+mysql> SELECT * FROM PRODUCT WHERE (QTY BETWEEN 10 AND 20 AND CID = 1) OR (QTY BETWEEN 30 AND 50 AND CID = 2);
++-----+--------------+-----+------------+------------+------+
+| pid | pname        | qty | mfgdate    | expdate    | cid  |
++-----+--------------+-----+------------+------------+------+
+| 102 | Keyboard     |  15 | 2025-02-15 | 2028-02-14 |    1 |
+| 120 | Webcam       |  11 | 2025-09-15 | 2028-09-14 |    1 |
+| 106 | Basmati Rice |  50 | 2025-05-12 | 2027-05-11 |    2 |
+| 107 | Cooking Oil  |  35 | 2025-06-20 | 2027-06-19 |    2 |
++-----+--------------+-----+------------+------------+------+
+4 rows in set (0.00 sec)
+
+mysql> SELECT * FROM PRODUCT WHERE PNAME LIKE 'W%';
++-----+----------------+-----+------------+------------+------+
+| pid | pname          | qty | mfgdate    | expdate    | cid  |
++-----+----------------+-----+------------+------------+------+
+| 101 | Wireless Mouse |  25 | 2025-01-10 | 2028-01-09 |    1 |
+| 120 | Webcam         |  11 | 2025-09-15 | 2028-09-14 |    1 |
++-----+----------------+-----+------------+------------+------+
+2 rows in set (0.00 sec)
+
+mysql> SELECT * FROM PRODUCT WHERE PNAME LIKE '%E';
++-----+-----------------+-----+------------+------------+------+
+| pid | pname           | qty | mfgdate    | expdate    | cid  |
++-----+-----------------+-----+------------+------------+------+
+| 101 | Wireless Mouse  |  25 | 2025-01-10 | 2028-01-09 |    1 |
+| 103 | USB Cable       |  40 | 2025-03-01 | 2028-02-28 |    1 |
+| 106 | Basmati Rice    |  50 | 2025-05-12 | 2027-05-11 |    2 |
+| 113 | Electric Kettle |  14 | 2025-05-05 | 2029-05-04 |    6 |
+| 116 | Toothpaste      |  30 | 2025-07-15 | 2027-07-14 |    4 |
++-----+-----------------+-----+------------+------------+------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT * FROM PRODUCT WHERE PNAME LIKE '%A%';
++-----+--------------+-----+------------+------------+------+
+| pid | pname        | qty | mfgdate    | expdate    | cid  |
++-----+--------------+-----+------------+------------+------+
+| 102 | Keyboard     |  15 | 2025-02-15 | 2028-02-14 |    1 |
+| 103 | USB Cable    |  40 | 2025-03-01 | 2028-02-28 |    1 |
+| 105 | Pen Pack     |  60 | 2025-04-10 | 2028-04-09 |    3 |
+| 106 | Basmati Rice |  50 | 2025-05-12 | 2027-05-11 |    2 |
+| 108 | Shampoo      |  20 | 2025-02-25 | 2027-02-24 |    4 |
+| 109 | Face Wash    |  18 | 2025-03-18 | 2027-03-17 |    4 |
+| 110 | Football     |  12 | 2025-01-20 | 2029-01-19 |    5 |
+| 111 | Cricket Bat  |   8 | 2025-02-08 | 2029-02-07 |    5 |
+| 114 | Power Bank   |  22 | 2025-06-10 | 2028-06-09 |    1 |
+| 115 | Marker Set   |  45 | 2025-07-01 | 2028-06-30 |    3 |
+| 116 | Toothpaste   |  30 | 2025-07-15 | 2027-07-14 |    4 |
+| 117 | Green Tea    |  25 | 2025-08-05 | 2027-08-04 |    2 |
+| 118 | Yoga Mat     |  16 | 2025-08-20 | 2029-08-19 |    5 |
+| 119 | Air Fryer    |   7 | 2025-09-01 | 2029-08-31 |    6 |
+| 120 | Webcam       |  11 | 2025-09-15 | 2028-09-14 |    1 |
++-----+--------------+-----+------------+------------+------+
+15 rows in set (0.00 sec)
+
+mysql> SELECT * FROM PRODUCT WHERE PNAME LIKE '%WASH%';
++-----+-----------+-----+------------+------------+------+
+| pid | pname     | qty | mfgdate    | expdate    | cid  |
++-----+-----------+-----+------------+------------+------+
+| 109 | Face Wash |  18 | 2025-03-18 | 2027-03-17 |    4 |
++-----+-----------+-----+------------+------------+------+
+1 row in set (0.00 sec)
+
+mysql> SELECT * FROM PRODUCT WHERE PNAME LIKE 'C%';
++-----+-------------+-----+------------+------------+------+
+| pid | pname       | qty | mfgdate    | expdate    | cid  |
++-----+-------------+-----+------------+------------+------+
+| 107 | Cooking Oil |  35 | 2025-06-20 | 2027-06-19 |    2 |
+| 111 | Cricket Bat |   8 | 2025-02-08 | 2029-02-07 |    5 |
++-----+-------------+-----+------------+------------+------+
+2 rows in set (0.00 sec)
+
+mysql> SELECT * FROM PRODUCT WHERE PNAME LIKE '______';
++-----+--------+-----+------------+------------+------+
+| pid | pname  | qty | mfgdate    | expdate    | cid  |
++-----+--------+-----+------------+------------+------+
+| 120 | Webcam |  11 | 2025-09-15 | 2028-09-14 |    1 |
++-----+--------+-----+------------+------------+------+
+1 row in set (0.00 sec)
+
+mysql> SELECT * FROM PRODUCT WHERE PNAME LIKE '_____';
+Empty set (0.00 sec)
+
+mysql> SELECT * FROM PRODUCT WHERE PNAME LIKE '_E%';
++-----+----------+-----+------------+------------+------+
+| pid | pname    | qty | mfgdate    | expdate    | cid  |
++-----+----------+-----+------------+------------+------+
+| 102 | Keyboard |  15 | 2025-02-15 | 2028-02-14 |    1 |
+| 105 | Pen Pack |  60 | 2025-04-10 | 2028-04-09 |    3 |
+| 120 | Webcam   |  11 | 2025-09-15 | 2028-09-14 |    1 |
++-----+----------+-----+------------+------------+------+
+3 rows in set (0.00 sec)
+
+mysql> SELECT * FROM PRODUCT WHERE PNAME LIKE '__A%';
++-----+---------+-----+------------+------------+------+
+| pid | pname   | qty | mfgdate    | expdate    | cid  |
++-----+---------+-----+------------+------------+------+
+| 108 | Shampoo |  20 | 2025-02-25 | 2027-02-24 |    4 |
++-----+---------+-----+------------+------------+------+
+1 row in set (0.00 sec)
+
+mysql> SELECT * FROM PRODUCT WHERE PNAME LIKE 'P%K';
++-----+------------+-----+------------+------------+------+
+| pid | pname      | qty | mfgdate    | expdate    | cid  |
++-----+------------+-----+------------+------------+------+
+| 105 | Pen Pack   |  60 | 2025-04-10 | 2028-04-09 |    3 |
+| 114 | Power Bank |  22 | 2025-06-10 | 2028-06-09 |    1 |
++-----+------------+-----+------------+------------+------+
+2 rows in set (0.00 sec)
+
+mysql> SELECT * FROM PRODUCT WHERE PNAME LIKE '%ER%';
++-----+---------------+-----+------------+------------+------+
+| pid | pname         | qty | mfgdate    | expdate    | cid  |
++-----+---------------+-----+------------+------------+------+
+| 112 | Mixer Grinder |  10 | 2025-04-15 | 2029-04-14 |    6 |
+| 114 | Power Bank    |  22 | 2025-06-10 | 2028-06-09 |    1 |
+| 115 | Marker Set    |  45 | 2025-07-01 | 2028-06-30 |    3 |
+| 119 | Air Fryer     |   7 | 2025-09-01 | 2029-08-31 |    6 |
++-----+---------------+-----+------------+------------+------+
+4 rows in set (0.00 sec)
+
+mysql> SELECT * FROM PRODUCT WHERE PNAME LIKE 'M%' OR PNAME LIKE'W%';
++-----+----------------+-----+------------+------------+------+
+| pid | pname          | qty | mfgdate    | expdate    | cid  |
++-----+----------------+-----+------------+------------+------+
+| 101 | Wireless Mouse |  25 | 2025-01-10 | 2028-01-09 |    1 |
+| 112 | Mixer Grinder  |  10 | 2025-04-15 | 2029-04-14 |    6 |
+| 115 | Marker Set     |  45 | 2025-07-01 | 2028-06-30 |    3 |
+| 120 | Webcam         |  11 | 2025-09-15 | 2028-09-14 |    1 |
++-----+----------------+-----+------------+------------+------+
+4 rows in set (0.00 sec)
+
+mysql> SELECT * FROM PRODUCT WHERE PNAME NOT LIKE'W%';
++-----+-----------------+-----+------------+------------+------+
+| pid | pname           | qty | mfgdate    | expdate    | cid  |
++-----+-----------------+-----+------------+------------+------+
+| 102 | Keyboard        |  15 | 2025-02-15 | 2028-02-14 |    1 |
+| 103 | USB Cable       |  40 | 2025-03-01 | 2028-02-28 |    1 |
+| 104 | Notebook        | 100 | 2025-01-05 | 2030-01-04 |    3 |
+| 105 | Pen Pack        |  60 | 2025-04-10 | 2028-04-09 |    3 |
+| 106 | Basmati Rice    |  50 | 2025-05-12 | 2027-05-11 |    2 |
+| 107 | Cooking Oil     |  35 | 2025-06-20 | 2027-06-19 |    2 |
+| 108 | Shampoo         |  20 | 2025-02-25 | 2027-02-24 |    4 |
+| 109 | Face Wash       |  18 | 2025-03-18 | 2027-03-17 |    4 |
+| 110 | Football        |  12 | 2025-01-20 | 2029-01-19 |    5 |
+| 111 | Cricket Bat     |   8 | 2025-02-08 | 2029-02-07 |    5 |
+| 112 | Mixer Grinder   |  10 | 2025-04-15 | 2029-04-14 |    6 |
+| 113 | Electric Kettle |  14 | 2025-05-05 | 2029-05-04 |    6 |
+| 114 | Power Bank      |  22 | 2025-06-10 | 2028-06-09 |    1 |
+| 115 | Marker Set      |  45 | 2025-07-01 | 2028-06-30 |    3 |
+| 116 | Toothpaste      |  30 | 2025-07-15 | 2027-07-14 |    4 |
+| 117 | Green Tea       |  25 | 2025-08-05 | 2027-08-04 |    2 |
+| 118 | Yoga Mat        |  16 | 2025-08-20 | 2029-08-19 |    5 |
+| 119 | Air Fryer       |   7 | 2025-09-01 | 2029-08-31 |    6 |
++-----+-----------------+-----+------------+------------+------+
+18 rows in set (0.00 sec)
+
+mysql> SELECT * FROM PRODUCT WHERE PNAME NOT LIKE'%A%';
++-----+-----------------+-----+------------+------------+------+
+| pid | pname           | qty | mfgdate    | expdate    | cid  |
++-----+-----------------+-----+------------+------------+------+
+| 101 | Wireless Mouse  |  25 | 2025-01-10 | 2028-01-09 |    1 |
+| 104 | Notebook        | 100 | 2025-01-05 | 2030-01-04 |    3 |
+| 107 | Cooking Oil     |  35 | 2025-06-20 | 2027-06-19 |    2 |
+| 112 | Mixer Grinder   |  10 | 2025-04-15 | 2029-04-14 |    6 |
+| 113 | Electric Kettle |  14 | 2025-05-05 | 2029-05-04 |    6 |
++-----+-----------------+-----+------------+------------+------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT * FROM PRODUCT WHERE PNAME NOT LIKE'E%' AND QTY > 10;
++-----+----------------+-----+------------+------------+------+
+| pid | pname          | qty | mfgdate    | expdate    | cid  |
++-----+----------------+-----+------------+------------+------+
+| 101 | Wireless Mouse |  25 | 2025-01-10 | 2028-01-09 |    1 |
+| 102 | Keyboard       |  15 | 2025-02-15 | 2028-02-14 |    1 |
+| 103 | USB Cable      |  40 | 2025-03-01 | 2028-02-28 |    1 |
+| 104 | Notebook       | 100 | 2025-01-05 | 2030-01-04 |    3 |
+| 105 | Pen Pack       |  60 | 2025-04-10 | 2028-04-09 |    3 |
+| 106 | Basmati Rice   |  50 | 2025-05-12 | 2027-05-11 |    2 |
+| 107 | Cooking Oil    |  35 | 2025-06-20 | 2027-06-19 |    2 |
+| 108 | Shampoo        |  20 | 2025-02-25 | 2027-02-24 |    4 |
+| 109 | Face Wash      |  18 | 2025-03-18 | 2027-03-17 |    4 |
+| 110 | Football       |  12 | 2025-01-20 | 2029-01-19 |    5 |
+| 114 | Power Bank     |  22 | 2025-06-10 | 2028-06-09 |    1 |
+| 115 | Marker Set     |  45 | 2025-07-01 | 2028-06-30 |    3 |
+| 116 | Toothpaste     |  30 | 2025-07-15 | 2027-07-14 |    4 |
+| 117 | Green Tea      |  25 | 2025-08-05 | 2027-08-04 |    2 |
+| 118 | Yoga Mat       |  16 | 2025-08-20 | 2029-08-19 |    5 |
+| 120 | Webcam         |  11 | 2025-09-15 | 2028-09-14 |    1 |
++-----+----------------+-----+------------+------------+------+
+16 rows in set (0.00 sec)
+
+mysql> SELECT PID , PNAME , QTY FROM PRODUCT WHERE PNAME LIKE 'E%' AND QTY > 10;
++-----+-----------------+-----+
+| PID | PNAME           | QTY |
++-----+-----------------+-----+
+| 113 | Electric Kettle |  14 |
++-----+-----------------+-----+
+1 row in set (0.00 sec)
+
+mysql> SELECT * FROM PRODUCT WHERE PNAME LIKE '%A%' AND CID IN (1,5);
++-----+-------------+-----+------------+------------+------+
+| pid | pname       | qty | mfgdate    | expdate    | cid  |
++-----+-------------+-----+------------+------------+------+
+| 102 | Keyboard    |  15 | 2025-02-15 | 2028-02-14 |    1 |
+| 103 | USB Cable   |  40 | 2025-03-01 | 2028-02-28 |    1 |
+| 114 | Power Bank  |  22 | 2025-06-10 | 2028-06-09 |    1 |
+| 120 | Webcam      |  11 | 2025-09-15 | 2028-09-14 |    1 |
+| 110 | Football    |  12 | 2025-01-20 | 2029-01-19 |    5 |
+| 111 | Cricket Bat |   8 | 2025-02-08 | 2029-02-07 |    5 |
+| 118 | Yoga Mat    |  16 | 2025-08-20 | 2029-08-19 |    5 |
++-----+-------------+-----+------------+------------+------+
+7 rows in set (0.00 sec)
+
+mysql> SELECT * FROM PRODUCT WHERE PNAME LIKE 'S%' OR PNAME LIKE '%E';
++-----+-----------------+-----+------------+------------+------+
+| pid | pname           | qty | mfgdate    | expdate    | cid  |
++-----+-----------------+-----+------------+------------+------+
+| 101 | Wireless Mouse  |  25 | 2025-01-10 | 2028-01-09 |    1 |
+| 103 | USB Cable       |  40 | 2025-03-01 | 2028-02-28 |    1 |
+| 106 | Basmati Rice    |  50 | 2025-05-12 | 2027-05-11 |    2 |
+| 108 | Shampoo         |  20 | 2025-02-25 | 2027-02-24 |    4 |
+| 113 | Electric Kettle |  14 | 2025-05-05 | 2029-05-04 |    6 |
+| 116 | Toothpaste      |  30 | 2025-07-15 | 2027-07-14 |    4 |
++-----+-----------------+-----+------------+------------+------+
+6 rows in set (0.00 sec)
+
+mysql> SELECT * FROM PRODUCT WHERE PNAME LIKE '%O%' AND QTY BETWEEN 10 AND 30;
++-----+----------------+-----+------------+------------+------+
+| pid | pname          | qty | mfgdate    | expdate    | cid  |
++-----+----------------+-----+------------+------------+------+
+| 101 | Wireless Mouse |  25 | 2025-01-10 | 2028-01-09 |    1 |
+| 102 | Keyboard       |  15 | 2025-02-15 | 2028-02-14 |    1 |
+| 108 | Shampoo        |  20 | 2025-02-25 | 2027-02-24 |    4 |
+| 110 | Football       |  12 | 2025-01-20 | 2029-01-19 |    5 |
+| 114 | Power Bank     |  22 | 2025-06-10 | 2028-06-09 |    1 |
+| 116 | Toothpaste     |  30 | 2025-07-15 | 2027-07-14 |    4 |
+| 118 | Yoga Mat       |  16 | 2025-08-20 | 2029-08-19 |    5 |
++-----+----------------+-----+------------+------------+------+
+7 rows in set (0.00 sec)
+
+mysql> SELECT * FROM PRODUCT WHERE PNAME LIKE 'C%' AND PNAME NOT LIKE '%R%';
++-----+-------------+-----+------------+------------+------+
+| pid | pname       | qty | mfgdate    | expdate    | cid  |
++-----+-------------+-----+------------+------------+------+
+| 107 | Cooking Oil |  35 | 2025-06-20 | 2027-06-19 |    2 |
++-----+-------------+-----+------------+------------+------+
+1 row in set (0.00 sec)
+
+mysql> SELECT * FROM PRODUCT WHERE PNAME LIKE '%A%' OR PNAME LIKE '%E%' AND QTY > 20;
++-----+----------------+-----+------------+------------+------+
+| pid | pname          | qty | mfgdate    | expdate    | cid  |
++-----+----------------+-----+------------+------------+------+
+| 101 | Wireless Mouse |  25 | 2025-01-10 | 2028-01-09 |    1 |
+| 102 | Keyboard       |  15 | 2025-02-15 | 2028-02-14 |    1 |
+| 103 | USB Cable      |  40 | 2025-03-01 | 2028-02-28 |    1 |
+| 104 | Notebook       | 100 | 2025-01-05 | 2030-01-04 |    3 |
+| 105 | Pen Pack       |  60 | 2025-04-10 | 2028-04-09 |    3 |
+| 106 | Basmati Rice   |  50 | 2025-05-12 | 2027-05-11 |    2 |
+| 108 | Shampoo        |  20 | 2025-02-25 | 2027-02-24 |    4 |
+| 109 | Face Wash      |  18 | 2025-03-18 | 2027-03-17 |    4 |
+| 110 | Football       |  12 | 2025-01-20 | 2029-01-19 |    5 |
+| 111 | Cricket Bat    |   8 | 2025-02-08 | 2029-02-07 |    5 |
+| 114 | Power Bank     |  22 | 2025-06-10 | 2028-06-09 |    1 |
+| 115 | Marker Set     |  45 | 2025-07-01 | 2028-06-30 |    3 |
+| 116 | Toothpaste     |  30 | 2025-07-15 | 2027-07-14 |    4 |
+| 117 | Green Tea      |  25 | 2025-08-05 | 2027-08-04 |    2 |
+| 118 | Yoga Mat       |  16 | 2025-08-20 | 2029-08-19 |    5 |
+| 119 | Air Fryer      |   7 | 2025-09-01 | 2029-08-31 |    6 |
+| 120 | Webcam         |  11 | 2025-09-15 | 2028-09-14 |    1 |
++-----+----------------+-----+------------+------------+------+
+17 rows in set (0.00 sec)
+
+mysql> SELECT * FROM PRODUCT WHERE PNAME LIKE 'M%' OR PNAME LIKE 'P%';
++-----+---------------+-----+------------+------------+------+
+| pid | pname         | qty | mfgdate    | expdate    | cid  |
++-----+---------------+-----+------------+------------+------+
+| 105 | Pen Pack      |  60 | 2025-04-10 | 2028-04-09 |    3 |
+| 112 | Mixer Grinder |  10 | 2025-04-15 | 2029-04-14 |    6 |
+| 114 | Power Bank    |  22 | 2025-06-10 | 2028-06-09 |    1 |
+| 115 | Marker Set    |  45 | 2025-07-01 | 2028-06-30 |    3 |
++-----+---------------+-----+------------+------------+------+
+4 rows in set (0.00 sec)
+
+mysql> SELECT * FROM PRODUCT WHERE PNAME LIKE '%A%' OR PNAME LIKE '%E%';
++-----+-----------------+-----+------------+------------+------+
+| pid | pname           | qty | mfgdate    | expdate    | cid  |
++-----+-----------------+-----+------------+------------+------+
+| 101 | Wireless Mouse  |  25 | 2025-01-10 | 2028-01-09 |    1 |
+| 102 | Keyboard        |  15 | 2025-02-15 | 2028-02-14 |    1 |
+| 103 | USB Cable       |  40 | 2025-03-01 | 2028-02-28 |    1 |
+| 104 | Notebook        | 100 | 2025-01-05 | 2030-01-04 |    3 |
+| 105 | Pen Pack        |  60 | 2025-04-10 | 2028-04-09 |    3 |
+| 106 | Basmati Rice    |  50 | 2025-05-12 | 2027-05-11 |    2 |
+| 108 | Shampoo         |  20 | 2025-02-25 | 2027-02-24 |    4 |
+| 109 | Face Wash       |  18 | 2025-03-18 | 2027-03-17 |    4 |
+| 110 | Football        |  12 | 2025-01-20 | 2029-01-19 |    5 |
+| 111 | Cricket Bat     |   8 | 2025-02-08 | 2029-02-07 |    5 |
+| 112 | Mixer Grinder   |  10 | 2025-04-15 | 2029-04-14 |    6 |
+| 113 | Electric Kettle |  14 | 2025-05-05 | 2029-05-04 |    6 |
+| 114 | Power Bank      |  22 | 2025-06-10 | 2028-06-09 |    1 |
+| 115 | Marker Set      |  45 | 2025-07-01 | 2028-06-30 |    3 |
+| 116 | Toothpaste      |  30 | 2025-07-15 | 2027-07-14 |    4 |
+| 117 | Green Tea       |  25 | 2025-08-05 | 2027-08-04 |    2 |
+| 118 | Yoga Mat        |  16 | 2025-08-20 | 2029-08-19 |    5 |
+| 119 | Air Fryer       |   7 | 2025-09-01 | 2029-08-31 |    6 |
+| 120 | Webcam          |  11 | 2025-09-15 | 2028-09-14 |    1 |
++-----+-----------------+-----+------------+------------+------+
+19 rows in set (0.00 sec)
+
+mysql> SELECT * FROM PRODUCT WHERE PNAME LIKE '%E' OR PNAME LIKE '%T';
++-----+-----------------+-----+------------+------------+------+
+| pid | pname           | qty | mfgdate    | expdate    | cid  |
++-----+-----------------+-----+------------+------------+------+
+| 101 | Wireless Mouse  |  25 | 2025-01-10 | 2028-01-09 |    1 |
+| 103 | USB Cable       |  40 | 2025-03-01 | 2028-02-28 |    1 |
+| 106 | Basmati Rice    |  50 | 2025-05-12 | 2027-05-11 |    2 |
+| 111 | Cricket Bat     |   8 | 2025-02-08 | 2029-02-07 |    5 |
+| 113 | Electric Kettle |  14 | 2025-05-05 | 2029-05-04 |    6 |
+| 115 | Marker Set      |  45 | 2025-07-01 | 2028-06-30 |    3 |
+| 116 | Toothpaste      |  30 | 2025-07-15 | 2027-07-14 |    4 |
+| 118 | Yoga Mat        |  16 | 2025-08-20 | 2029-08-19 |    5 |
++-----+-----------------+-----+------------+------------+------+
+8 rows in set (0.00 sec)
