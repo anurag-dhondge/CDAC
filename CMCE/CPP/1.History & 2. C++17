@@ -1,0 +1,520 @@
+# 🚀 C++ Programming – CMCE Notes
+
+> 📚 **CMCE August 2026 Batch | C++ Programming**
+>
+> This repository contains C++ programming notes, history, features, C++17 new features, examples, and basic practice questions.
+
+---
+
+## 📌 2. History of C++
+
+| Year | Development |
+|:---:|---|
+| 1972 | C language developed by Dennis Ritchie |
+| 1979 | C with Classes developed by Bjarne Stroustrup at AT&T Bell Labs |
+| 1983 | Renamed to C++ |
+| 1998 | C++98 standard |
+| 2003 | C++03 |
+| 2011 | C++11 |
+| 2014 | C++14 |
+| 2017 | C++17 |
+| 2020 | C++20 |
+| 2023 | C++23 |
+
+---
+
+## 🖥️ C++ vs Visual C++
+
+| Term | Meaning |
+|---|---|
+| C++ | CUI / CLI → Command Line Interface |
+| VC++ | Visual C++ → Visual development environment, commonly used for GUI applications |
+
+---
+
+## ⭐ C++ Features
+
+- Bottom-Up Approach
+- Class
+- Object
+- 4 Pillars of OOP
+- Function Overloading
+- Constructor
+- Destructor
+- Template
+- Pointer
+- STL (Standard Template Library)
+
+---
+
+# 🔥 C++17 New Features – Basic Explanation
+
+C++17 introduced several new features to make C++ programming easier, cleaner, and more efficient.
+
+---
+
+### 1️⃣ Structured Bindings
+
+**First understand:**
+
+Suppose you have two values: roll number and name.
+
+Normally, you access them separately using `.first` and `.second`.
+
+C++17 allows you to take both values into separate variables in one line.
+
+```cpp
+pair<int, string> student = {101, "Anurag"};
+
+auto [roll, name] = student;
+
+cout << roll;  // 101
+cout << name;  // Anurag
+```
+
+<details>
+<summary>💡 Simple Meaning</summary>
+
+Separate multiple values into individual variables in one statement.
+</details>
+
+---
+
+### 2️⃣ if constexpr
+
+**First understand:**
+
+An `if` statement checks a condition while the program runs.
+
+But `if constexpr` checks a condition during compilation.
+
+```cpp
+if constexpr (10 > 5) {
+    cout << "Yes";
+}
+```
+
+**Output:**
+```text
+Yes
+```
+
+<details>
+<summary>💡 Simple Meaning</summary>
+
+Checks the condition before the program runs.
+</details>
+
+---
+
+### 3️⃣ std::optional
+
+**First understand:**
+
+Sometimes we have a value, and sometimes we don't.
+
+**Example:** Searching for a student's roll number.
+
+- Student found → Return roll number.
+- Student not found → Return nothing.
+
+```cpp
+optional<int> roll = 101;
+
+if (roll.has_value()) {
+    cout << roll.value();
+}
+```
+
+**Output:**
+```text
+101
+```
+
+<details>
+<summary>💡 Simple Meaning</summary>
+
+A variable can contain a value or remain empty.
+</details>
+
+---
+
+### 4️⃣ std::variant
+
+**First understand:**
+
+Normally, an integer variable stores integers, and a string variable stores text.
+
+But what if one variable needs to store different types?
+
+```cpp
+variant<int, string> data;
+
+data = 100;
+data = string("Anurag");
+```
+
+Here, `data` can store either an integer or a string, but only one at a time.
+
+<details>
+<summary>💡 Simple Meaning</summary>
+
+One variable can store one value from multiple predefined data types.
+</details>
+
+---
+
+### 5️⃣ std::any
+
+**First understand:**
+
+Imagine you want one variable that can store an integer, string, decimal, etc., without deciding all possible types in advance.
+
+```cpp
+any data;
+
+data = 100;
+data = string("Anurag");
+data = 10.5;
+```
+
+The variable can change the type of value it stores.
+
+<details>
+<summary>💡 Simple Meaning</summary>
+
+One variable can store values of almost any type without listing the possible types beforehand.
+</details>
+
+**Difference between variant and any:**
+
+| std::variant | std::any |
+|---|---|
+| You must specify the possible types beforehand. | You don't need to specify the possible types beforehand. |
+| Stores one of the predefined types. | Can store almost any copy-constructible type. |
+
+---
+
+### 6️⃣ std::string_view
+
+**First understand:**
+
+Suppose you have a string:
+
+```cpp
+string name = "Anurag";
+```
+
+You want another variable to read the same string without creating another copy.
+
+```cpp
+string_view s = name;
+
+cout << s;
+```
+
+**Output:**
+```text
+Anurag
+```
+
+It looks at the existing string instead of owning a separate copy.
+
+<details>
+<summary>💡 Simple Meaning</summary>
+
+Read an existing string without copying it.
+</details>
+
+---
+
+### 7️⃣ Inline Variables
+
+**First understand:**
+
+Suppose multiple C++ files use the same global variable.
+
+Defining that variable separately in multiple files can cause errors.
+
+C++17 introduced inline variables to allow the same variable definition to be safely shared across multiple source files.
+
+```cpp
+class Student {
+public:
+    inline static int count = 0;
+};
+```
+
+<details>
+<summary>💡 Simple Meaning</summary>
+
+Allows shared variables to be defined in header files without multiple-definition errors.
+</details>
+
+---
+
+### 8️⃣ Fold Expressions
+
+**First understand:**
+
+Suppose you want to add five numbers.
+
+Normally:
+
+```cpp
+10 + 20 + 30 + 40 + 50
+```
+
+But what if you want a function that can add any number of values?
+
+```cpp
+template<typename... T>
+auto add(T... values) {
+    return (values + ...);
+}
+
+int main() {
+    cout << add(10, 20, 30, 40);
+}
+```
+
+**Output:**
+```text
+100
+```
+
+<details>
+<summary>💡 Simple Meaning</summary>
+
+Automatically performs an operation on multiple values passed to a function.
+</details>
+
+---
+
+### 9️⃣ If with Initializer
+
+**First understand:**
+
+Normally, we declare a variable separately and then check its condition.
+
+**Before C++17:**
+
+```cpp
+int age = 22;
+
+if (age >= 18) {
+    cout << "Eligible";
+}
+```
+
+**C++17:**
+
+```cpp
+if (int age = 22; age >= 18) {
+    cout << "Eligible";
+}
+```
+
+Both give the same output.
+
+<details>
+<summary>💡 Simple Meaning</summary>
+
+Declare a variable and check its condition in the same if statement.
+</details>
+
+---
+
+### 🔟 CTAD (Class Template Argument Deduction)
+
+**First understand:**
+
+Normally, when creating a template object, we specify its data types.
+
+**Before C++17:**
+
+```cpp
+pair<int, int> p(10, 20);
+```
+
+**C++17:**
+
+```cpp
+pair p(10, 20);
+```
+
+The compiler automatically understands that both values are integers.
+
+<details>
+<summary>💡 Simple Meaning</summary>
+
+The compiler automatically identifies the data types of a template object.
+</details>
+
+---
+
+### 1️⃣1️⃣ Filesystem Library
+
+**First understand:**
+
+In normal programming, we create, read, rename and delete files.
+
+C++17 provides a library to work with files and folders easily.
+
+```cpp
+#include <iostream>
+#include <filesystem>
+using namespace std;
+
+int main() {
+    if (filesystem::exists("data.txt")) {
+        cout << "File exists";
+    }
+}
+```
+
+**Output (if the file exists):**
+```text
+File exists
+```
+
+<details>
+<summary>💡 Simple Meaning</summary>
+
+Helps us create, check, rename and delete files and folders.
+</details>
+
+---
+
+### 1️⃣2️⃣ New Attributes
+
+**First understand:**
+
+Attributes give additional information to the compiler about our code.
+
+C++17 introduced three useful attributes:
+
+| Attribute | Simple Meaning |
+|---|---|
+| `[[nodiscard]]` | Warn if someone ignores a function's return value. |
+| `[[maybe_unused]]` | Tell the compiler that a variable may intentionally be unused. |
+| `[[fallthrough]]` | Tell the compiler that moving to the next switch case is intentional. |
+
+**Example:**
+
+```cpp
+[[nodiscard]] int getNumber() {
+    return 100;
+}
+```
+
+If you call `getNumber()` and ignore its return value, the compiler may give a warning.
+
+<details>
+<summary>💡 Simple Meaning</summary>
+
+Give extra instructions to the compiler.
+</details>
+
+---
+
+# 📖 Final Revision – Remember These for CMCE
+
+| No. | Feature | Remember This |
+|:---:|---|---|
+| 1 | Structured Bindings | Separate multiple values |
+| 2 | `if constexpr` | Compile-time condition |
+| 3 | Optional | Value or empty |
+| 4 | Variant | One value from predefined types |
+| 5 | Any | Almost any data type |
+| 6 | String View | Read without copying |
+| 7 | Inline Variables | Safe shared variable definitions |
+| 8 | Fold Expressions | Operation on multiple values |
+| 9 | If Initializer | Declare and check together |
+| 10 | CTAD | Automatic type deduction |
+| 11 | Filesystem | File and folder operations |
+| 12 | Attributes | Extra instructions to compiler |
+
+---
+
+# 📝 Check Your Understanding
+
+Try answering these five basic questions:
+
+## 🎯 Basic C++17 Quiz
+
+**Q1. Which feature separates pair values into individual variables?**
+
+- A. Optional
+- B. Structured Bindings
+- C. Filesystem
+
+<details>
+<summary>✅ Show Correct Answer</summary>
+
+**Correct! → Structured Bindings**
+</details>
+
+---
+
+**Q2. Which feature stores a value or nothing?**
+
+- A. Variant
+- B. Any
+- C. Optional
+
+<details>
+<summary>✅ Show Correct Answer</summary>
+
+**Correct! → Optional**
+</details>
+
+---
+
+**Q3. Which one requires predefined possible data types?**
+
+- A. Variant
+- B. Any
+- C. String View
+
+<details>
+<summary>✅ Show Correct Answer</summary>
+
+**Correct! → Variant**
+</details>
+
+---
+
+**Q4. Which feature avoids creating another string copy?**
+
+- A. CTAD
+- B. String View
+- C. Fold Expressions
+
+<details>
+<summary>✅ Show Correct Answer</summary>
+
+**Correct! → String View**
+</details>
+
+---
+
+**Q5. Which feature automatically identifies template data types?**
+
+- A. Optional
+- B. Filesystem
+- C. CTAD
+
+<details>
+<summary>✅ Show Correct Answer</summary>
+
+**Correct! → CTAD**
+</details>
+
+---
+
+## 🌟 Keep Learning | Keep Practicing | Keep Coding
+
+**CMCE August 2026 – C++ Programming Notes**
+
+*Happy Coding! 🚀*
