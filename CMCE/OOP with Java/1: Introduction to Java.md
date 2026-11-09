@@ -1,261 +1,551 @@
 # ☕ Session 1: Introduction to Java
 
-**Course:** PGCP-AC / CMCE – August 2026  
+**Course:** PGCP-AC / CMCE – August 2026 Batch  
 **Subject:** Object Oriented Programming with Java  
 **Session:** 1  
 **Duration:** 2 Theory + 2 Self Learning  
-**Java Version:** Java 17 (LTS)
+**Java Version:** JDK 17 (LTS)
 
-**Topics:** Introduction to Java, Features of Java, JVM Architecture, JDK and Its Usage, Structure of Java Class, Primitive Data Types, Java Tokens (Keywords, Identifiers, Literals).
+---
+
+# 📚 Table of Contents
+
+1. Introduction to Java
+2. Features of Java
+3. JVM Architecture
+4. JDK and Its Usage
+5. Structure of a Java Class
+6. Working with Data Types – Primitive Data Types
+7. Java Tokens
+   - Keywords
+   - Identifiers
+   - Literals
+8. Important Differences
+9. Practical Java Programs
+10. CMCE Interview Questions
+11. CMCE Practice MCQs
+12. Quick Revision Notes
+13. Practice Checklist
 
 ---
 
 # 1. Introduction to Java
 
-Java is a **high-level, class-based, object-oriented, general-purpose programming language** designed to be platform-independent.
+## 1.1 What is Java?
 
-Java was developed by **James Gosling and his team at Sun Microsystems** and officially released in 1995.
+Java is a **high-level, class-based, object-oriented, general-purpose programming language** developed by James Gosling and his team at Sun Microsystems.
 
-Java is now maintained by Oracle and the wider OpenJDK community.
+Java is widely used for developing web applications, enterprise applications, desktop software, backend systems and distributed applications.
 
-### Important characteristics
-
-- **High-level:** Provides human-readable syntax.
-- **Object-oriented:** Supports classes, objects, inheritance, polymorphism, abstraction and encapsulation.
-- **Platform-independent:** Compiled bytecode can execute on different operating systems using a compatible JVM.
-- **Robust:** Supports exception handling and automatic memory management.
-- **Secure:** Provides bytecode verification, access control and other security mechanisms.
-- **Multithreaded:** Supports concurrent execution using multiple threads.
-
-## 1.1 History of Java
+### History of Java
 
 | Year | Event |
 |---|---|
-| 1991 | Java development began as the Green Project. |
-| 1995 | Java was officially introduced by Sun Microsystems. |
+| 1991 | Java development started under the Green Project. |
+| 1991 | Originally named Oak. |
+| 1995 | Java was officially introduced. |
 | 1996 | JDK 1.0 was released. |
 | 2010 | Oracle acquired Sun Microsystems. |
-| 2014 | Java 8 introduced lambda expressions and Stream API. |
-| 2017 | Java 9 introduced the module system. |
+| 2014 | Java 8 introduced Lambda Expressions and Stream API. |
+| 2017 | Java 9 introduced the Module System. |
 | 2021 | Java 17 was released as an LTS version. |
 
-**Important:** Java was initially named **Oak** and later renamed Java.
+**Important Points:**
+- Developed by James Gosling.
+- Original name was Oak.
+- Developed at Sun Microsystems.
+- Officially introduced in 1995.
+- Currently developed through the OpenJDK community and Oracle.
 
-## 1.2 Applications of Java
+## 1.2 Why Was Java Developed?
 
-Java is used in:
+Before Java, programming languages such as C and C++ were widely used.
 
-1. Enterprise applications
-2. Web and backend development
-3. Banking and financial systems
-4. Android application development
-5. Desktop applications
-6. Distributed applications
-7. Cloud-based services
+However, developers faced several challenges:
 
-Examples of Java technologies include Spring Boot, Hibernate, Jakarta EE and JDBC.
+1. Platform Dependency: Programs compiled for one operating system might not execute directly on another.
+2. Memory Management: Manual memory management could introduce memory-related errors.
+3. Complexity: Features such as explicit pointer arithmetic increased programming complexity.
+4. Security: Applications needed better runtime safety mechanisms.
+5. Portability: Developers wanted applications that could run on different operating systems and devices.
 
-## 1.3 How Java Works
+Java was designed to address many of these challenges by providing bytecode, JVM-based execution, automatic garbage collection and a managed runtime environment.
+
+## 1.3 How Does Java Work?
 
 Java follows the principle:
 
-**WORA – Write Once, Run Anywhere**
+**WORA – Write Once, Run Anywhere.**
 
-This means Java source code is compiled into platform-independent bytecode, which can run on different platforms with compatible Java runtimes.
+Java source code is first compiled into bytecode. This bytecode can execute on different operating systems using compatible JVM implementations.
 
-### Java Execution Flow
+### Java Execution Process
 
 ```text
        Java Source Code
-          Hello.java
-              |
-              v
-       Java Compiler
+           Hello.java
+               |
+               v
+        Java Compiler
             javac
-              |
-              v
-         Bytecode
-         Hello.class
-              |
-              v
-       Class Loader
-              |
-              v
+               |
+               v
+          Bytecode
+          Hello.class
+               |
+               v
+         Class Loader
+               |
+               v
        Bytecode Verifier
-              |
-              v
-        JVM Execution
-       /             \
- Interpreter      JIT Compiler
-       \             /
-        Native Execution
-              |
-              v
-            Output
+               |
+               v
+              JVM
+               |
+       -----------------
+       |               |
+   Interpreter      JIT Compiler
+       |               |
+       -----------------
+               |
+               v
+       Native Execution
+               |
+               v
+             Output
 ```
 
-### Example: Hello World
+### Step 1: Write Java Source Code
+
+Create a file named `Hello.java`.
 
 ```java
-public class Hello {
+class Hello {
+
     public static void main(String[] args) {
+
         System.out.println("Hello Java");
+
     }
 }
 ```
 
-**Compile:**
+The `.java` file contains human-readable Java source code.
+
+### Step 2: Compile Java Source Code
+
+Execute:
 
 ```bash
 javac Hello.java
 ```
 
-**Execute:**
+The Java compiler checks the source code and generates:
+
+```text
+Hello.class
+```
+
+This file contains Java bytecode.
+
+### Step 3: Execute the Bytecode
+
+Execute:
 
 ```bash
 java Hello
 ```
 
-**Output:**
+Output:
 
 ```text
 Hello Java
 ```
 
-### Explanation
+The JVM loads and executes the compiled bytecode.
 
-- `javac` compiles the source file into bytecode.
-- `Hello.class` contains compiled bytecode.
-- `java Hello` launches the JVM to execute the class.
-- `System.out.println()` displays output on the console.
+## 1.4 What is Bytecode?
 
-**CMCE Important:** Java is both compiled and interpreted/JIT-compiled.
+Bytecode is an intermediate instruction format generated by the Java compiler.
+
+It is not ordinary Java source code and is not directly tied to a particular processor architecture.
+
+| Source Code | Bytecode | Machine Code |
+|---|---|---|
+| Written by programmer | Generated by Java compiler | Native processor instructions |
+| `.java` | `.class` | Platform-specific |
+| Human-readable | JVM instructions | CPU-executable |
+
+## 1.5 What is WORA?
+
+WORA stands for **Write Once, Run Anywhere**.
+
+It means that Java source code can be compiled once into bytecode and that bytecode can execute on different operating systems with compatible JVM implementations.
+
+Example:
+
+```text
+              Hello.java
+                  |
+                javac
+                  |
+              Hello.class
+                  |
+        -----------------------
+        |          |          |
+        v          v          v
+     Windows     Linux      macOS
+       JVM        JVM        JVM
+        |          |          |
+        v          v          v
+      Output     Output     Output
+```
+
+**Important CMCE Point:**
+
+- Java bytecode is platform-independent.
+- JVM implementations are platform-dependent.
+- JVM provides the environment to execute bytecode on different platforms.
+
+## 1.6 Applications of Java
+
+Java is used in:
+
+1. Enterprise Applications
+2. Web Applications
+3. Backend Development
+4. Banking and Financial Systems
+5. Android Development
+6. Desktop Applications
+7. Distributed Applications
+8. Cloud-Based Applications
+
+**Popular Java Technologies:**
+
+- Spring Boot
+- Hibernate
+- JDBC
+- Jakarta EE
+- Maven
+- Gradle
 
 ---
 
 # 2. Features of Java
 
-Java provides several important features that make it suitable for application development.
+Java provides several features that make it suitable for modern software development.
 
-| Feature | Explanation |
-|---|---|
-| Simple | Java removes many complex features of C++, such as explicit pointer arithmetic. |
-| Object-Oriented | Supports classes, objects and major OOP principles. |
-| Platform Independent | Bytecode executes on compatible JVMs across operating systems. |
-| Portable | Fixed primitive sizes and standard bytecode improve portability. |
-| Secure | Provides bytecode verification and runtime access controls. |
-| Robust | Supports exception handling, type checking and garbage collection. |
-| Multithreaded | Supports multiple threads executing concurrently. |
-| High Performance | JIT compilation optimizes frequently executed code. |
-| Distributed | Supports networking and distributed application development. |
-| Dynamic | Classes can be loaded dynamically during execution. |
-| Architecture Neutral | Bytecode is not tied to one processor architecture. |
+## 2.1 Simple
 
-## 2.1 Platform Independence
+Java is considered simpler than C++ because it avoids or removes several complex programming features.
 
-A Java program can execute on Windows, Linux or macOS without recompilation, provided a compatible JVM is available.
+Important characteristics:
 
-```text
-            Java Source
-                 |
-               javac
-                 |
-             Bytecode
-                 |
-       ---------------------
-       |         |         |
-       v         v         v
-    Windows    Linux     macOS
-      JVM       JVM       JVM
-       |         |         |
-       v         v         v
-     Output    Output    Output
-```
+- No explicit pointer arithmetic.
+- No manual memory deallocation.
+- Automatic garbage collection.
+- Simplified memory management.
+- No user-defined operator overloading.
 
-**Important Difference:**
-
-- Java source code is compiled into platform-independent bytecode.
-- JVM implementations are platform-dependent.
-- JVM makes Java bytecode portable across supported platforms.
-
-## 2.2 Why Is Java Robust?
-
-Java is considered robust because it provides:
-
-- Strong type checking
-- Exception handling
-- Automatic garbage collection
-- Array bounds checking
-- Runtime verification
-
-### Example: Array Bounds Checking
+Example:
 
 ```java
-class Test {
-    public static void main(String[] args) {
-        int[] arr = {10, 20, 30};
+class Student {
 
-        System.out.println(arr[5]);
+    public static void main(String[] args) {
+
+        Student s1 = new Student();
+
+        s1 = null;
+
     }
 }
 ```
 
-**Result:**
+When the object becomes unreachable, it becomes eligible for garbage collection.
 
-```text
-Exception in thread "main"
-java.lang.ArrayIndexOutOfBoundsException
+Unlike C++, Java does not require the programmer to manually delete the object.
+
+## 2.2 Object-Oriented
+
+Java is a class-based, object-oriented programming language.
+
+It organizes applications using classes and objects.
+
+### Four Major OOP Principles
+
+| Principle | Explanation |
+|---|---|
+| Encapsulation | Wrapping data and methods together and controlling access to data. |
+| Abstraction | Hiding implementation details and exposing essential functionality. |
+| Inheritance | Acquiring properties and behaviour from another class. |
+| Polymorphism | Allowing one interface or method name to represent different behaviours. |
+
+Example:
+
+```java
+class Animal {
+
+    void sound() {
+        System.out.println("Animal makes sound");
+    }
+}
+
+class Dog extends Animal {
+
+    @Override
+    void sound() {
+        System.out.println("Dog barks");
+    }
+}
+
+class Main {
+
+    public static void main(String[] args) {
+
+        Animal a = new Dog();
+
+        a.sound();
+
+    }
+}
 ```
 
-Java detects invalid array access at runtime instead of allowing unchecked memory access.
+Output:
 
-## 2.3 Why Is Java Secure?
+```text
+Dog barks
+```
 
-Java provides:
+Explanation:
 
-1. Bytecode verification
-2. Class loading controls
-3. Access modifiers
-4. Type safety
-5. No direct pointer arithmetic
-6. Security-related libraries and APIs
+- `Animal` is the parent class.
+- `Dog` is the child class.
+- `extends` represents inheritance.
+- `sound()` is overridden.
+- `Animal a = new Dog()` demonstrates runtime polymorphism.
 
-**CMCE Important:** Java does not support explicit pointer arithmetic like C and C++.
+## 2.3 Platform Independent
+
+Java source code is compiled into bytecode.
+
+The bytecode can run on different operating systems using their respective JVM implementations.
+
+Example:
+
+A Java program compiled on Windows can run on Linux without recompiling the source code, provided a compatible JVM is available.
+
+## 2.4 Portable
+
+Portability means Java programs can be transferred between supported environments with consistent behaviour.
+
+Java provides fixed sizes for primitive numeric types.
+
+Example:
+
+```java
+int a = 100;
+long b = 100000L;
+```
+
+The size of `int` is always 32 bits, regardless of the operating system.
+
+This improves portability.
+
+## 2.5 Secure
+
+Java provides several security mechanisms.
+
+1. Bytecode Verification.
+2. Class Loading Controls.
+3. Access Modifiers.
+4. Type Safety.
+5. No Direct Pointer Arithmetic.
+6. Security-Related APIs.
+
+Example:
+
+```java
+class BankAccount {
+
+    private double balance = 5000;
+
+    public double getBalance() {
+
+        return balance;
+
+    }
+}
+```
+
+Here, `private` restricts direct access to the balance field from unrelated classes.
+
+## 2.6 Robust
+
+Robust means reliable and capable of handling errors.
+
+Java supports robustness through:
+
+- Exception Handling.
+- Strong Type Checking.
+- Automatic Memory Management.
+- Array Bounds Checking.
+- Runtime Verification.
+
+Example:
+
+```java
+class Demo {
+
+    public static void main(String[] args) {
+
+        int a = 10;
+        int b = 0;
+
+        try {
+
+            System.out.println(a / b);
+
+        }
+        catch (ArithmeticException e) {
+
+            System.out.println("Cannot divide by zero");
+
+        }
+    }
+}
+```
+
+Output:
+
+```text
+Cannot divide by zero
+```
+
+The exception is handled instead of remaining uncaught.
+
+## 2.7 Multithreaded
+
+Multithreading means executing multiple threads concurrently within a program.
+
+A thread is a lightweight unit of execution.
+
+Example:
+
+```java
+class MyThread extends Thread {
+
+    public void run() {
+
+        System.out.println("Thread is running");
+
+    }
+}
+
+class Main {
+
+    public static void main(String[] args) {
+
+        MyThread t = new MyThread();
+
+        t.start();
+
+    }
+}
+```
+
+Output:
+
+```text
+Thread is running
+```
+
+Here, `start()` starts a new thread that executes the `run()` method.
+
+## 2.8 High Performance
+
+Java provides high performance using Just-In-Time (JIT) compilation.
+
+The JIT compiler identifies frequently executed code and converts it into optimized native machine code.
+
+This reduces the overhead of repeatedly interpreting the same bytecode.
+
+## 2.9 Distributed
+
+Java supports network-based and distributed applications.
+
+Examples:
+
+- Socket Programming.
+- HTTP Communication.
+- Remote Service Communication.
+- Distributed Enterprise Applications.
+
+## 2.10 Dynamic
+
+Java supports loading classes dynamically during runtime.
+
+Reflection and class-loading mechanisms allow applications to inspect and load classes when required.
+
+### Quick Revision – Features of Java
+
+| Feature | Important Point |
+|---|---|
+| Simple | Reduced language complexity |
+| Object-Oriented | Classes and Objects |
+| Platform Independent | Bytecode + JVM |
+| Portable | Fixed primitive sizes |
+| Secure | Bytecode verification |
+| Robust | Exception handling and GC |
+| Multithreaded | Concurrent threads |
+| High Performance | JIT Compiler |
+| Distributed | Networking support |
+| Dynamic | Runtime class loading |
 
 ---
 
 # 3. JVM Architecture
 
-**JVM (Java Virtual Machine)** is an abstract machine responsible for loading, verifying and executing Java bytecode.
+**JVM – Java Virtual Machine**
 
-The JVM provides a runtime environment for Java applications.
+JVM is an abstract machine that provides an environment to execute Java bytecode.
 
-## 3.1 Main Components of JVM
+It is responsible for:
+
+1. Loading class files.
+2. Verifying bytecode.
+3. Managing runtime memory.
+4. Executing bytecode.
+5. Managing garbage collection.
+
+## 3.1 JVM Architecture Diagram
 
 ```text
                   JVM
                    |
-     --------------------------------
-     |              |               |
-     v              v               v
- Class Loader   Runtime Data    Execution
-  Subsystem       Areas          Engine
-                    |               |
-              -------------    -----------
-              |     |     |    |    |    |
-             Heap Stack Method INT  JIT  GC
-                         Area
-                   |
-            JNI & Native Libraries
+     ----------------------------------
+     |                |               |
+     v                v               v
+ Class Loader     Runtime Data    Execution
+  Subsystem         Areas          Engine
+                      |               |
+              ----------------    -----------
+              |   |   |   |   |   |    |    |
+             Heap Stack Method PC Native JIT GC
+                   Area     Register Stack
+                      |
+                     JNI
+                      |
+             Native Libraries
 ```
 
 The major components are:
 
-1. Class Loader Subsystem
-2. Runtime Data Areas
-3. Execution Engine
-4. Java Native Interface
-5. Native Method Libraries
+1. Class Loader Subsystem.
+2. Runtime Data Areas.
+3. Execution Engine.
+4. Java Native Interface (JNI).
+5. Native Method Libraries.
 
 ## 3.2 Class Loader Subsystem
 
@@ -265,252 +555,398 @@ It performs three major phases:
 
 ### A. Loading
 
-Loads class bytecode into JVM memory.
+The loading process reads compiled bytecode and creates the corresponding class representation in JVM memory.
 
-Java provides class loaders such as:
+Java provides three commonly discussed built-in class loaders:
 
-- Bootstrap Class Loader
-- Platform Class Loader
-- Application Class Loader
+| Class Loader | Responsibility |
+|---|---|
+| Bootstrap Class Loader | Loads core Java platform classes. |
+| Platform Class Loader | Loads platform classes and libraries. |
+| Application Class Loader | Loads application classes from classpath/module path. |
 
 ### B. Linking
 
-Linking consists of:
+Linking connects the loaded class with the required runtime structures.
+
+It contains three stages.
 
 **1. Verification**
 
-Checks bytecode validity and safety.
+Checks whether bytecode is valid and follows JVM safety rules.
+
+It verifies:
+
+- Valid bytecode instructions.
+- Correct operand stack usage.
+- Type safety.
+- Valid references and access rules.
 
 **2. Preparation**
 
 Allocates storage for static fields and assigns their default values.
 
+Example:
+
+```java
+class Student {
+
+    static int count = 10;
+
+}
+```
+
+During preparation:
+
+```text
+count = 0
+```
+
+The explicit value `10` is assigned during class initialization.
+
 **3. Resolution**
 
 Converts symbolic references into direct references.
 
+For example, a symbolic reference to a method or field in another class is resolved when required.
+
 ### C. Initialization
 
-Executes class initialization logic, including static field initializers and static initialization blocks.
-
-**CMCE Important:**
-
-```text
-Loading → Linking → Initialization
-
-Linking:
-Verification → Preparation → Resolution
-```
-
-## 3.3 Runtime Data Areas
-
-JVM memory is divided into different runtime areas.
-
-| Memory Area | Purpose | Shared/Thread-Specific |
-|---|---|---|
-| Method Area | Stores class metadata and runtime constant pools. | Shared |
-| Heap | Stores objects and arrays. | Shared |
-| JVM Stack | Stores stack frames for method calls. | Per thread |
-| PC Register | Tracks the current JVM instruction. | Per thread |
-| Native Method Stack | Supports native method execution. | Per thread |
-
-### A. Heap Memory
-
-Heap memory stores objects and arrays.
+During initialization, static initializers are executed.
 
 Example:
 
 ```java
-Student s1 = new Student();
+class Demo {
+
+    static int x = 100;
+
+    static {
+
+        System.out.println("Static block executed");
+
+    }
+}
 ```
 
-The `Student` object is generally allocated on the heap.
+When the class is initialized, its static initialization logic executes.
 
-### B. Stack Memory
+### Class Loading Sequence
 
-Each thread has a JVM stack containing frames for active method calls.
+```text
+Loading
+   |
+   v
+Linking
+   |
+   |---- Verification
+   |
+   |---- Preparation
+   |
+   |---- Resolution
+   |
+   v
+Initialization
+```
 
-A stack frame contains information such as:
+**Important CMCE Question:** Explain the three phases of class loading and the three stages of linking.
 
-- Local variables
-- Operand stack
-- Method execution information
+## 3.3 Runtime Data Areas
 
-### Example
+Runtime Data Areas are JVM memory areas used during program execution.
+
+They are classified into shared and per-thread areas.
+
+| Memory Area | Purpose | Memory Type |
+|---|---|---|
+| Heap | Stores objects and arrays. | Shared |
+| Method Area | Stores class-level metadata. | Shared |
+| JVM Stack | Stores method execution frames. | Per Thread |
+| PC Register | Tracks current JVM instruction. | Per Thread |
+| Native Method Stack | Supports native method execution. | Per Thread |
+
+### A. Heap Memory
+
+Heap is a shared memory area.
+
+It stores:
+
+- Objects.
+- Arrays.
+- Instance data associated with objects.
+
+Example:
+
+```java
+class Student {
+
+    int rollNo;
+
+    public static void main(String[] args) {
+
+        Student s1 = new Student();
+
+        s1.rollNo = 101;
+
+    }
+}
+```
+
+Conceptual memory:
+
+```text
+          STACK                 HEAP
+      -------------       ----------------
+      | s1        | ----> | Student Object |
+      | reference |       | rollNo = 101   |
+      -------------       ----------------
+```
+
+### B. JVM Stack
+
+Each thread has its own JVM stack.
+
+It contains stack frames associated with method calls.
+
+A stack frame contains:
+
+- Local Variable Array.
+- Operand Stack.
+- Method-related runtime information.
+
+Example:
 
 ```java
 class Demo {
-    public static void main(String[] args) {
+
+    static void show() {
+
         int x = 10;
+        int y = 20;
+
+    }
+
+    public static void main(String[] args) {
+
+        show();
+
+    }
+}
+```
+
+When `main()` calls `show()`, a new stack frame is created.
+
+When `show()` finishes execution, its stack frame is removed.
+
+### C. Method Area
+
+The Method Area is a shared logical runtime memory area.
+
+It stores:
+
+- Class Metadata.
+- Method Metadata.
+- Runtime Constant Pools.
+- Field Information.
+
+In HotSpot JVM, class metadata is generally stored in Metaspace.
+
+### D. PC Register
+
+PC stands for Program Counter.
+
+Each thread has its own PC register.
+
+It tracks the current JVM instruction being executed by that thread.
+
+### E. Native Method Stack
+
+Supports execution of native methods.
+
+Native methods are methods implemented outside Java, commonly in C or C++.
+
+## 3.4 Execution Engine
+
+The Execution Engine executes Java bytecode.
+
+It contains three important components.
+
+### A. Interpreter
+
+The interpreter executes bytecode instructions.
+
+Advantages:
+
+- Can begin execution quickly.
+- Does not need to wait for native compilation.
+
+Disadvantages:
+
+- Repeated interpretation can be slower.
+- Does not provide the same optimizations as compiled hot code.
+
+### B. JIT Compiler
+
+JIT stands for Just-In-Time Compiler.
+
+It compiles frequently executed bytecode into optimized native machine code.
+
+Example:
+
+Suppose a loop executes one million times.
+
+The JVM can identify frequently executed code and compile it into optimized native code.
+
+### C. Garbage Collector
+
+Garbage Collection automatically reclaims memory occupied by unreachable objects.
+
+Example:
+
+```java
+class Demo {
+
+    public static void main(String[] args) {
+
         Student s = new Student();
+
+        s = null;
+
     }
 }
 
 class Student {
-    int marks = 90;
+
 }
 ```
 
-Conceptual memory representation:
+Initially, `s` refers to a Student object.
 
-```text
-         Stack                  Heap
-    ----------------      ----------------
-    | x = 10       |      | Student Object |
-    | s = reference|----->| marks = 90     |
-    ----------------      ----------------
-```
+After `s = null`, the object may become eligible for garbage collection if no other reachable references exist.
 
-**Important:** Local variables are stored in stack frames, while objects are generally stored in heap memory. JVM optimizations may change physical allocation.
+**Important:** Garbage collection does not necessarily happen immediately.
 
-### C. Method Area
+## 3.5 JNI – Java Native Interface
 
-Stores information such as:
+JNI stands for Java Native Interface.
 
-- Class metadata
-- Method metadata
-- Runtime constant pools
-- Field information
+It allows Java applications to interact with native code written in languages such as C and C++.
 
-**Note:** In HotSpot JVM, class metadata is commonly stored using Metaspace.
+It is useful when Java needs to access platform-specific libraries.
 
-### D. PC Register
+## 3.6 Native Method Libraries
 
-Each thread has its own Program Counter register.
+These are platform-specific libraries that support native methods.
 
-It tracks the JVM instruction being executed by that thread.
+They may be implemented using C or C++.
 
-### E. Native Method Stack
+## 3.7 Interpreter vs JIT vs Garbage Collector
 
-Supports methods implemented using native programming languages such as C and C++.
-
-## 3.4 Execution Engine
-
-The execution engine executes bytecode.
-
-It contains:
-
-### A. Interpreter
-
-Executes bytecode instructions.
-
-**Advantage:** Can begin execution without waiting for native compilation.
-
-**Disadvantage:** Repeated interpretation can be slower than optimized native code.
-
-### B. JIT Compiler
-
-JIT stands for **Just-In-Time Compiler**.
-
-It compiles frequently executed bytecode into optimized native machine code.
-
-**Advantage:** Improves performance for repeatedly executed code.
-
-### C. Garbage Collector
-
-Automatically reclaims memory occupied by objects that are no longer reachable.
-
-Example:
-
-```java
-Student s = new Student();
-s = null;
-```
-
-The object may become eligible for garbage collection if no other reachable references exist.
-
-Garbage collection is automatic, but the exact time of collection is not guaranteed.
-
-## 3.5 Interpreter vs JIT Compiler
-
-| Interpreter | JIT Compiler |
-|---|---|
-| Executes bytecode instructions. | Compiles bytecode into native code. |
-| Can start executing immediately. | Has compilation overhead. |
-| Repeated interpretation can be slower. | Optimized native code can execute faster. |
-| Does not require compiling the entire method to native code. | Optimizes selected methods or code paths. |
-
-## 3.6 JNI
-
-**JNI – Java Native Interface**
-
-JNI allows Java code to interact with native libraries written in languages such as C and C++.
-
-It is useful when Java applications need access to platform-specific functionality.
+| Interpreter | JIT Compiler | Garbage Collector |
+|---|---|---|
+| Executes bytecode instructions. | Compiles selected bytecode into native code. | Reclaims memory. |
+| Starts execution directly. | Optimizes frequently executed code. | Manages unreachable objects. |
+| May have repeated interpretation overhead. | Reduces repeated interpretation overhead. | Supports automatic memory management. |
 
 ---
 
 # 4. JDK and Its Usage
 
-**JDK (Java Development Kit)** is a software development kit used to develop, compile, debug and execute Java applications.
+## 4.1 What is JDK?
 
-## 4.1 JDK vs JRE vs JVM
+JDK stands for **Java Development Kit**.
+
+It is a software development kit used to develop, compile, debug and execute Java applications.
+
+It provides:
+
+- Java Compiler.
+- Java Application Launcher.
+- Java Debugger.
+- JAR Tool.
+- Documentation Generator.
+- Runtime Components.
+
+## 4.2 JDK vs JRE vs JVM
+
+This is one of the most frequently asked CMCE questions.
 
 | JDK | JRE | JVM |
 |---|---|---|
 | Java Development Kit | Java Runtime Environment | Java Virtual Machine |
-| Used for development and execution. | Provides components needed to run Java applications. | Executes Java bytecode. |
-| Contains compiler and development tools. | Contains JVM and runtime libraries. | Provides the bytecode execution environment. |
-| Used by developers. | Used for running applications. | Used internally during execution. |
+| Used for development and execution. | Provides runtime components. | Executes Java bytecode. |
+| Includes compiler and development tools. | Includes JVM and runtime libraries conceptually. | Provides bytecode execution environment. |
+| Used by developers. | Used to run Java applications. | Used internally during execution. |
 
 ### Conceptual Relationship
 
 ```text
-             JDK
-    ----------------------
-    | Development Tools  |
-    | javac, jar, jdb    |
-    |                    |
-    |   Java Runtime     |
-    |  ----------------  |
-    |  | JVM          |  |
-    |  | Libraries    |  |
-    |  ----------------  |
-    ----------------------
+              JDK
+               |
+       -------------------
+       |                 |
+ Development Tools    Runtime
+                         |
+                   ------------
+                   |          |
+                  JVM      Libraries
 ```
 
-**Note:** Modern JDKs such as JDK 17 do not necessarily contain a separate traditional `jre` directory.
+**Note:** Modern JDK distributions may not contain a separate traditional JRE directory. The diagram represents the conceptual relationship.
 
-## 4.2 Important JDK Tools
+## 4.3 Important JDK Tools
 
-| Tool | Purpose |
+| Command | Purpose |
 |---|---|
 | `javac` | Compiles Java source code. |
 | `java` | Launches Java applications. |
+| `jar` | Creates and manages JAR files. |
 | `javadoc` | Generates API documentation. |
-| `jar` | Creates and manages JAR archives. |
-| `jdb` | Java debugger. |
 | `javap` | Displays compiled class information. |
-| `jshell` | Interactive Java REPL. |
+| `jdb` | Java debugger. |
+| `jshell` | Interactive Java shell. |
 | `jlink` | Creates custom runtime images. |
 | `jconsole` | Monitors Java applications. |
 
-## 4.3 Check Java Installation
+## 4.4 Check Java Installation
 
 Open Command Prompt or Terminal.
+
+Check Java version:
 
 ```bash
 java -version
 ```
 
+Check compiler version:
+
 ```bash
 javac -version
 ```
 
-Example output:
+Check Java installation path:
 
-```text
-javac 17.0.x
+```bash
+where java
 ```
 
-## 4.4 Compile and Execute a Java Program
+Check compiler installation path:
+
+```bash
+where javac
+```
+
+## 4.5 Compile and Execute a Java Program
 
 Create `Hello.java`:
 
 ```java
-public class Hello {
+class Hello {
+
     public static void main(String[] args) {
-        System.out.println("Welcome to Java");
+
+        System.out.println("Welcome to CMCE");
+
     }
 }
 ```
@@ -521,7 +957,7 @@ Compile:
 javac Hello.java
 ```
 
-Run:
+Execute:
 
 ```bash
 java Hello
@@ -530,94 +966,237 @@ java Hello
 Output:
 
 ```text
-Welcome to Java
+Welcome to CMCE
 ```
 
-**Important:** We use the class name, not the `.class` extension, when launching a class using the `java` command.
+## 4.6 What is JShell?
+
+JShell is an interactive Java shell introduced in Java 9.
+
+It allows programmers to execute Java statements without creating a complete Java class.
+
+Start JShell:
+
+```bash
+jshell
+```
+
+Enter:
+
+```java
+int a = 10;
+int b = 20;
+
+System.out.println(a + b);
+```
+
+Output:
+
+```text
+30
+```
+
+Exit:
+
+```java
+/exit
+```
+
+Uses:
+
+- Testing small expressions.
+- Learning Java syntax.
+- Testing methods.
+- Practising Java concepts.
 
 ---
 
 # 5. Structure of a Java Class
 
-A Java program is organized using classes.
+## 5.1 What is a Class?
 
-A class can contain:
+A class is a blueprint or template used to create objects.
 
-- Fields
-- Constructors
-- Methods
-- Initialization blocks
-- Nested classes
+It defines the data and behaviour that objects of that class can have.
 
-## 5.1 Basic Java Class Structure
+Example:
 
 ```java
+class Student {
+
+    int rollNo;
+
+    String name;
+
+    void display() {
+
+        System.out.println(name);
+
+    }
+
+}
+```
+
+Here:
+
+- `Student` is a class.
+- `rollNo` and `name` are instance variables.
+- `display()` is an instance method.
+
+## 5.2 General Structure of a Java Program
+
+```java
+// Package declaration
 package com.example;
 
+// Import statement
 import java.util.Scanner;
 
+// Class declaration
 public class Student {
+
+    // Static variable
+    static String college = "PESMCOE";
 
     // Instance variables
     int rollNo;
     String name;
 
     // Constructor
-    public Student(int rollNo, String name) {
+    Student(int rollNo, String name) {
+
         this.rollNo = rollNo;
         this.name = name;
+
     }
 
     // Instance method
-    public void display() {
-        System.out.println("Roll No: " + rollNo);
-        System.out.println("Name: " + name);
+    void display() {
+
+        System.out.println(rollNo);
+        System.out.println(name);
+
     }
 
     // Main method
     public static void main(String[] args) {
-        Student s1 = new Student(101, "Rahul");
+
+        Student s1 = new Student(101, "Anurag");
+
         s1.display();
+
     }
 }
 ```
 
-Save this file as `Student.java` inside the appropriate `com/example` package directory.
+## 5.3 Components of a Java Class
 
-### Explanation
+### 1. Package Declaration
 
-| Component | Purpose |
-|---|---|
-| `package` | Groups related classes. |
-| `import` | Allows convenient use of types from other packages. |
-| `class` | Defines a class. |
-| `int rollNo` | Instance variable. |
-| `Student()` | Constructor used to initialize objects. |
-| `display()` | Instance method. |
-| `main()` | Entry point for a standard Java application. |
-| `new` | Creates a new object. |
-| `this` | Refers to the current object. |
+A package groups related classes and interfaces.
 
-## 5.2 Main Method Explained
+```java
+package com.example;
+```
+
+It must appear before import statements and type declarations.
+
+### 2. Import Statement
+
+Import allows convenient access to types from other packages.
+
+```java
+import java.util.Scanner;
+```
+
+Example:
+
+```java
+Scanner sc = new Scanner(System.in);
+```
+
+### 3. Class Declaration
+
+```java
+public class Student {
+
+}
+```
+
+- `public` is an access modifier.
+- `class` is a Java keyword.
+- `Student` is the class identifier.
+
+### 4. Variables
+
+Variables store data.
+
+```java
+int rollNo;
+
+String name;
+```
+
+### 5. Constructor
+
+A constructor initializes an object when it is created.
+
+```java
+Student(int rollNo, String name) {
+
+    this.rollNo = rollNo;
+    this.name = name;
+
+}
+```
+
+Important characteristics:
+
+- Constructor name must match the class name.
+- Constructor has no return type.
+- Constructor executes during object creation.
+- Constructors can be overloaded.
+
+### 6. Methods
+
+Methods define the behaviour of a class.
+
+```java
+void display() {
+
+    System.out.println("Hello");
+
+}
+```
+
+### 7. Main Method
 
 ```java
 public static void main(String[] args)
 ```
 
-| Keyword/Element | Meaning |
+This is the standard entry point for a conventional standalone Java application.
+
+## 5.4 Main Method Explained
+
+| Element | Explanation |
 |---|---|
 | `public` | Makes the method accessible to the Java launcher. |
-| `static` | Allows calling the method without creating an object. |
-| `void` | Method does not return a value. |
+| `static` | Allows invocation without creating a class instance. |
+| `void` | Does not return a value. |
 | `main` | Standard entry-point method name. |
-| `String[] args` | Stores command-line arguments. |
+| `String[]` | Array of String references. |
+| `args` | Parameter name containing command-line arguments. |
 
-### Command-Line Arguments Example
+Example:
 
 ```java
-class CommandLineDemo {
+class Demo {
+
     public static void main(String[] args) {
-        System.out.println(args[0]);
+
+        System.out.println("Welcome " + args[0]);
+
     }
 }
 ```
@@ -625,24 +1204,22 @@ class CommandLineDemo {
 Compile:
 
 ```bash
-javac CommandLineDemo.java
+javac Demo.java
 ```
 
 Execute:
 
 ```bash
-java CommandLineDemo Anurag
+java Demo Anurag
 ```
 
 Output:
 
 ```text
-Anurag
+Welcome Anurag
 ```
 
-**Important:** Command-line arguments are stored as strings.
-
-## 5.3 Java Naming Conventions
+## 5.5 Java Naming Conventions
 
 | Element | Convention | Example |
 |---|---|---|
@@ -650,107 +1227,135 @@ Anurag
 | Method | camelCase | `displayDetails()` |
 | Variable | camelCase | `studentName` |
 | Constant | UPPER_SNAKE_CASE | `MAX_MARKS` |
-| Package | lowercase | `com.example` |
+| Package | Lowercase | `com.example` |
+
+## 5.6 Important Rules
+
+1. A Java source file can contain multiple top-level classes.
+2. At most one top-level class can be public in a source file.
+3. If a public top-level class exists, the filename must match its name.
+4. Java is case-sensitive.
+5. A constructor has the same name as its class.
+6. A constructor does not have a return type.
+7. A standard standalone Java application uses the main method as its entry point.
 
 ---
 
-# 6. Primitive Data Types in Java
+# 6. Working with Data Types – Primitive Data Types
 
-A data type determines what kind of value a variable can store.
+## 6.1 What is a Data Type?
 
-Java data types are broadly classified into:
+A data type specifies what kind of value a variable can store and which operations are permitted on it.
 
-```text
-             Data Types
-                 |
-       ---------------------
-       |                   |
-    Primitive          Reference
-       |                   |
-  -------------       ------------
-  |     |     |       |    |     |
-Integer Float Boolean Class Array String
-  |
-byte, short,
-int, long
+Example:
+
+```java
+int age = 22;
+
+double salary = 45000.50;
+
+char grade = 'A';
+
+boolean isPassed = true;
 ```
 
-Java provides **8 primitive data types**.
+## 6.2 Classification of Java Data Types
 
-## 6.1 Primitive Data Types Table
+```text
+                 DATA TYPES
+                     |
+           ---------------------
+           |                   |
+        Primitive           Reference
+           |                   |
+      ------------       -------------
+      |    |     |       |     |     |
+    byte  int  char    Class Array String
+    short long float
+          double
+        boolean
+```
 
-| Data Type | Size | Default Value (Fields) | Example |
-|---|---|---|---|
-| `byte` | 1 byte | `0` | `byte a = 10;` |
-| `short` | 2 bytes | `0` | `short b = 100;` |
-| `int` | 4 bytes | `0` | `int c = 1000;` |
-| `long` | 8 bytes | `0L` | `long d = 10000L;` |
-| `float` | 4 bytes | `0.0f` | `float e = 10.5f;` |
-| `double` | 8 bytes | `0.0d` | `double f = 20.5;` |
-| `char` | 2 bytes | `'\u0000'` | `char g = 'A';` |
-| `boolean` | JVM-dependent storage | `false` | `boolean h = true;` |
+Java provides exactly **8 primitive data types**.
 
-**Important:** Local variables do not receive automatic default values. They must be definitely assigned before use.
+## 6.3 Primitive Data Types Table
 
-## 6.2 Integer Data Types
+| Data Type | Size | Range / Values | Default Value |
+|---|---:|---|---|
+| byte | 8 bits | -128 to 127 | 0 |
+| short | 16 bits | -32,768 to 32,767 | 0 |
+| int | 32 bits | -2³¹ to 2³¹ - 1 | 0 |
+| long | 64 bits | -2⁶³ to 2⁶³ - 1 | 0L |
+| float | 32 bits | Approximately 6–7 decimal digits | 0.0f |
+| double | 64 bits | Approximately 15–16 decimal digits | 0.0d |
+| char | 16 bits | '\u0000' to '\uffff' | '\u0000' |
+| boolean | Not precisely specified by the language | true or false | false |
 
-### byte
+**Important:** Default values apply to instance and static fields. Local variables must be initialized before use.
 
-- Size: 8 bits
-- Range: -128 to 127
+## 6.4 Integer Data Types
+
+### A. byte
+
+- Size: 8 bits.
+- Range: -128 to 127.
 - Used for small integer values.
 
 ```java
 byte age = 22;
+
+byte min = -128;
+
+byte max = 127;
 ```
 
-### short
+### B. short
 
-- Size: 16 bits
-- Range: -32,768 to 32,767
+- Size: 16 bits.
+- Range: -32,768 to 32,767.
 
 ```java
 short year = 2026;
 ```
 
-### int
+### C. int
 
-- Size: 32 bits
-- Range: -2,147,483,648 to 2,147,483,647
-- Default integer literal type.
+- Size: 32 bits.
+- Range: -2,147,483,648 to 2,147,483,647.
+- Default integer literal type when representable as an int.
 
 ```java
 int salary = 50000;
 ```
 
-### long
+### D. long
 
-- Size: 64 bits
+- Size: 64 bits.
 - Used for large integer values.
 
 ```java
 long population = 8000000000L;
 ```
 
-**Important:** Use `L` for long integer literals when the value is outside the `int` range.
+**Important:** Use the `L` suffix for long literals when required.
 
-## 6.3 Floating-Point Data Types
+## 6.5 Floating-Point Data Types
 
-### float
+### A. float
 
-- Size: 32 bits
+- Size: 32 bits.
 - Single-precision floating-point type.
-- Requires `f` or `F` suffix for ordinary decimal literals.
+- Approximately 6–7 decimal digits of precision.
 
 ```java
 float percentage = 85.5f;
 ```
 
-### double
+### B. double
 
-- Size: 64 bits
+- Size: 64 bits.
 - Double-precision floating-point type.
-- Default type for decimal literals.
+- Approximately 15–16 decimal digits of precision.
 
 ```java
 double price = 999.99;
@@ -760,119 +1365,182 @@ double price = 999.99;
 
 | float | double |
 |---|---|
-| 32-bit | 64-bit |
-| Approximately 6–7 decimal digits of precision | Approximately 15–16 decimal digits of precision |
-| Requires `f` suffix for decimal literals | Default decimal literal type |
-| Lower precision | Higher precision |
+| 32 bits | 64 bits |
+| Single precision | Double precision |
+| Approximately 6–7 digits | Approximately 15–16 digits |
+| Requires `f` suffix for ordinary decimal literals | Default decimal literal type |
 
-## 6.4 char Data Type
+Example:
 
-The `char` data type stores a single UTF-16 code unit.
+```java
+float a = 10.5f;
+
+double b = 10.5;
+```
+
+## 6.6 char Data Type
+
+The `char` data type stores a single 16-bit UTF-16 code unit.
 
 ```java
 char grade = 'A';
+
 char symbol = '@';
+
 char unicode = '\u0041';
 ```
 
-Here, `'\u0041'` represents `A`.
+Output of `unicode`:
 
-**Important:** Java `char` is unsigned and ranges from `'\u0000'` to `'\uffff'`.
+```text
+A
+```
 
-## 6.5 boolean Data Type
+Important:
 
-Stores one of two values:
+```java
+char a = 'A';   // Valid
+
+char b = "A";   // Invalid
+```
+
+Single quotes represent character literals, while double quotes represent String literals.
+
+## 6.7 boolean Data Type
+
+The boolean type stores only two possible values:
 
 ```java
 true
+
 false
 ```
 
 Example:
 
 ```java
-boolean isPassed = true;
-boolean isFailed = false;
-```
+class BooleanDemo {
 
-**Important:** Java does not allow implicit conversion between `boolean` and integer types.
-
-## 6.6 Program: Demonstrating All Primitive Data Types
-
-```java
-public class PrimitiveDemo {
     public static void main(String[] args) {
 
-        byte a = 100;
-        short b = 20000;
-        int c = 100000;
-        long d = 9000000000L;
+        int age = 22;
 
-        float e = 10.5f;
-        double f = 99.999;
+        boolean eligible = age >= 18;
 
-        char g = 'A';
-        boolean h = true;
+        System.out.println(eligible);
 
-        System.out.println("byte: " + a);
-        System.out.println("short: " + b);
-        System.out.println("int: " + c);
-        System.out.println("long: " + d);
-        System.out.println("float: " + e);
-        System.out.println("double: " + f);
-        System.out.println("char: " + g);
-        System.out.println("boolean: " + h);
     }
 }
 ```
 
-### Output
+Output:
 
 ```text
-byte: 100
-short: 20000
-int: 100000
-long: 9000000000
-float: 10.5
-double: 99.999
-char: A
-boolean: true
+true
 ```
 
-## 6.7 Primitive vs Reference Data Types
+Java does not allow converting boolean into an integer or vice versa.
+
+## 6.8 Default Values of Primitive Data Types
+
+| Data Type | Default Value |
+|---|---|
+| byte | 0 |
+| short | 0 |
+| int | 0 |
+| long | 0L |
+| float | 0.0f |
+| double | 0.0d |
+| char | '\u0000' |
+| boolean | false |
+
+Example:
+
+```java
+class DefaultValues {
+
+    int age;
+
+    double salary;
+
+    char grade;
+
+    boolean active;
+
+    public static void main(String[] args) {
+
+        DefaultValues obj = new DefaultValues();
+
+        System.out.println(obj.age);
+
+        System.out.println(obj.salary);
+
+        System.out.println((int)obj.grade);
+
+        System.out.println(obj.active);
+
+    }
+}
+```
+
+Output:
+
+```text
+0
+0.0
+0
+false
+```
+
+**Important MCQ:** Local variables do not get automatic default values.
+
+## 6.9 Primitive vs Reference Data Types
 
 | Primitive | Reference |
 |---|---|
-| Stores primitive values directly. | Stores references to objects. |
 | Eight predefined types. | Includes classes, interfaces and arrays. |
-| Cannot hold `null`. | Can hold `null`. |
-| Example: `int`, `char` | Example: `String`, `Student` |
+| Stores primitive values. | Stores object references. |
+| Cannot hold null. | Can hold null. |
+| Has specified primitive value ranges and sizes. | Reference representation is JVM-dependent. |
+| Example: int, char, boolean | Example: String, Student, int[] |
 
-### Example
+Example:
 
 ```java
 int age = 22;
-String name = "Rahul";
+
+String name = "Anurag";
 ```
 
-Here:
+Here, `age` is a primitive variable, while `name` is a reference variable.
 
-- `age` is a primitive variable.
-- `name` is a reference variable.
+## 6.10 Type Conversion in Java
 
-## 6.8 Type Conversion Overview
+Type conversion means converting a value from one data type to another compatible type.
 
-Java supports two main types of primitive numeric conversion.
+There are two major types of primitive numeric conversion.
 
 ### A. Widening Conversion
 
-Converts a smaller-range numeric type to a wider type automatically.
+Widening converts a numeric value into a type with a wider range.
+
+It is generally performed automatically.
+
+Example:
 
 ```java
-int a = 100;
-double b = a;
+class WideningDemo {
 
-System.out.println(b);
+    public static void main(String[] args) {
+
+        int a = 100;
+
+        double b = a;
+
+        System.out.println(b);
+
+    }
+}
 ```
 
 Output:
@@ -881,28 +1549,37 @@ Output:
 100.0
 ```
 
-Common widening paths include:
+Common widening conversions:
 
 ```text
 byte → short → int → long → float → double
-              ^
-              |
+              ↑
              char
 ```
 
-**Note:** Widening conversions are automatic but can still lose precision, such as converting a large `long` to `float`.
+**Note:** Widening can still lose precision in some cases, such as converting a large `long` into `float`.
 
 ### B. Narrowing Conversion
 
-Converts one numeric type to another type with a narrower range or precision.
+Narrowing converts a numeric value into a type with a narrower range or precision.
 
 Explicit casting is generally required.
 
-```java
-double a = 99.99;
-int b = (int) a;
+Example:
 
-System.out.println(b);
+```java
+class NarrowingDemo {
+
+    public static void main(String[] args) {
+
+        double a = 99.99;
+
+        int b = (int)a;
+
+        System.out.println(b);
+
+    }
+}
 ```
 
 Output:
@@ -911,46 +1588,73 @@ Output:
 99
 ```
 
-**Important:** Narrowing may cause data loss.
+The fractional portion is discarded.
+
+### Widening vs Narrowing
+
+| Widening | Narrowing |
+|---|---|
+| Generally automatic | Generally explicit |
+| Converts to a wider type | Converts to a narrower type |
+| May still lose precision | Can lose range or precision |
+| Example: int to double | Example: double to int |
 
 ---
 
 # 7. Java Tokens
 
-A **token** is the smallest meaningful element of a Java program recognized by the compiler.
+## 7.1 What are Tokens?
+
+Tokens are the smallest meaningful elements of a Java program recognized by the compiler.
 
 Java tokens include:
 
-1. Keywords
-2. Identifiers
-3. Literals
-4. Operators
-5. Separators
+1. Keywords.
+2. Identifiers.
+3. Literals.
+4. Operators.
+5. Separators.
 
-## 7.1 Keywords
+Example:
+
+```java
+int age = 22;
+```
+
+| Token | Category |
+|---|---|
+| int | Keyword |
+| age | Identifier |
+| = | Operator |
+| 22 | Literal |
+| ; | Separator |
+
+## 7.2 Keywords
 
 Keywords are reserved words with predefined meanings in Java.
 
-They cannot be used as identifiers.
+They cannot be used as ordinary identifiers.
 
-### Important Java Keywords
+### Common Java Keywords
 
 | Category | Keywords |
 |---|---|
-| Access Control | `public`, `private`, `protected` |
-| Class and Object | `class`, `new`, `this`, `super` |
-| Inheritance | `extends`, `implements` |
-| Data Types | `int`, `long`, `float`, `double`, `char`, `boolean`, `byte`, `short` |
-| Control Flow | `if`, `else`, `switch`, `case`, `for`, `while`, `do`, `break`, `continue` |
-| Exception Handling | `try`, `catch`, `finally`, `throw`, `throws` |
-| Modifiers | `static`, `final`, `abstract`, `synchronized`, `volatile`, `transient` |
-| Other | `void`, `return`, `package`, `import`, `interface`, `enum`, `instanceof` |
+| Access Control | public, private, protected |
+| Class and Object | class, new, this, super |
+| Inheritance | extends, implements |
+| Data Types | int, byte, short, long, float, double, char, boolean |
+| Control Flow | if, else, switch, case, for, while, do, break, continue |
+| Exception Handling | try, catch, finally, throw, throws |
+| Modifiers | static, final, abstract, synchronized, volatile, transient |
+| Other | void, return, package, import, interface, enum, instanceof |
 
 ### Example
 
 ```java
 public class Student {
+
     private int rollNo;
+
 }
 ```
 
@@ -963,32 +1667,39 @@ Here:
 
 ### Important CMCE Points
 
-- `true` and `false` are boolean literals, not keywords.
-- `null` is a literal, not a keyword.
-- `String` is a class name, not a keyword.
-- `main` is a method name, not a keyword.
-- `const` and `goto` are reserved keywords but are not used in Java.
-- `var` is a reserved type name in specific contexts, not an ordinary keyword.
-- `record`, `sealed` and `permits` have special contextual roles in modern Java.
+- `main` is not a keyword.
+- `String` is not a keyword.
+- `true` and `false` are boolean literals.
+- `null` is a null literal.
+- `const` and `goto` are reserved but unused keywords.
+- `var` is a restricted type name, not an ordinary keyword.
+- `record`, `sealed` and `permits` have contextual roles in modern Java.
 
-## 7.2 Identifiers
+## 7.3 Identifiers
 
-Identifiers are names used for:
+Identifiers are names used to identify program elements.
 
-- Classes
-- Methods
-- Variables
-- Interfaces
-- Packages
+They are used for:
 
-### Example
+- Classes.
+- Methods.
+- Variables.
+- Interfaces.
+- Packages.
+
+Example:
 
 ```java
 class Student {
-    int rollNo = 101;
+
+    int rollNo;
+
+    String studentName;
 
     void displayDetails() {
-        System.out.println(rollNo);
+
+        System.out.println(studentName);
+
     }
 }
 ```
@@ -998,80 +1709,135 @@ Identifiers:
 ```text
 Student
 rollNo
+studentName
 displayDetails
 ```
 
 ### Rules for Identifiers
 
-1. Cannot start with a digit.
-2. Cannot contain spaces.
-3. Cannot be a reserved keyword.
-4. Can contain letters, digits, `_` and `$`.
-5. Are case-sensitive.
-6. May contain supported Unicode identifier characters.
-
-### Valid Identifiers
+**Rule 1: Cannot start with a digit.**
 
 ```java
-studentName
-rollNo
-_age
-$salary
-student123
+int 123age;  // Invalid
+
+int age123;  // Valid
 ```
 
-### Invalid Identifiers
+**Rule 2: Cannot contain spaces.**
 
-```text
-123student
-student name
-class
-student-name
+```java
+int student age;  // Invalid
+
+int studentAge;   // Valid
 ```
 
-### Case Sensitivity
+**Rule 3: Cannot use Java keywords.**
+
+```java
+int class;  // Invalid
+```
+
+**Rule 4: Can contain supported letters, digits, underscore and dollar sign.**
+
+```java
+int _age;
+
+int $salary;
+
+int student123;
+```
+
+**Rule 5: Java is case-sensitive.**
 
 ```java
 int age = 20;
-int Age = 25;
-int AGE = 30;
+
+int Age = 30;
+
+int AGE = 40;
 ```
 
 All three are different identifiers.
 
-## 7.3 Literals
+### Valid vs Invalid Identifiers
 
-Literals are fixed values directly written in source code.
+| Valid | Invalid |
+|---|---|
+| studentName | 123student |
+| rollNo | student name |
+| _age | class |
+| $salary | student-name |
+| student123 | 1number |
+
+## 7.4 Literals
+
+Literals are fixed values directly written in Java source code.
 
 ### Types of Literals
 
 | Literal Type | Example |
 |---|---|
-| Integer | `100`, `200L` |
-| Floating-point | `10.5`, `20.5f` |
-| Character | `'A'`, `'9'` |
-| String | `"Java"` |
-| Boolean | `true`, `false` |
-| Null | `null` |
+| Integer | 100 |
+| Floating-point | 10.5 |
+| Character | 'A' |
+| String | "Java" |
+| Boolean | true, false |
+| Null | null |
 
 ### A. Integer Literals
 
-Java supports different number systems.
+Java supports four integer number systems.
+
+| Number System | Prefix | Example |
+|---|---|---|
+| Decimal | No prefix | 10 |
+| Binary | 0b or 0B | 0b1010 |
+| Octal | 0 | 012 |
+| Hexadecimal | 0x or 0X | 0xA |
+
+Example:
 
 ```java
-int decimal = 10;
-int binary = 0b1010;
-int octal = 012;
-int hexadecimal = 0xA;
+class NumberSystem {
+
+    public static void main(String[] args) {
+
+        int decimal = 10;
+
+        int binary = 0b1010;
+
+        int octal = 012;
+
+        int hexadecimal = 0xA;
+
+        System.out.println(decimal);
+
+        System.out.println(binary);
+
+        System.out.println(octal);
+
+        System.out.println(hexadecimal);
+
+    }
+}
 ```
 
-All four represent decimal value 10.
+Output:
+
+```text
+10
+10
+10
+10
+```
 
 ### B. Floating-Point Literals
 
 ```java
-float a = 10.5f;
-double b = 20.5;
+double a = 10.5;
+
+float b = 20.5f;
+
 double c = 1.5e3;
 ```
 
@@ -1081,24 +1847,29 @@ Here, `1.5e3` represents 1500.0.
 
 ```java
 char a = 'A';
+
 char b = '7';
+
 char c = '\n';
 ```
 
 Common escape sequences:
 
-| Escape | Meaning |
+| Escape Sequence | Meaning |
 |---|---|
-| `\n` | New line |
-| `\t` | Tab |
-| `\\` | Backslash |
-| `\'` | Single quote |
-| `\"` | Double quote |
+| \n | New line |
+| \t | Tab |
+| \\ | Backslash |
+| \' | Single quote |
+| \" | Double quote |
+| \r | Carriage return |
+| \b | Backspace |
 
 ### D. String Literals
 
 ```java
 String name = "Anurag";
+
 String language = "Java";
 ```
 
@@ -1107,8 +1878,9 @@ String literals are enclosed in double quotes.
 ### E. Boolean Literals
 
 ```java
-boolean isActive = true;
-boolean isCompleted = false;
+boolean active = true;
+
+boolean completed = false;
 ```
 
 ### F. Null Literal
@@ -1117,35 +1889,41 @@ boolean isCompleted = false;
 String name = null;
 ```
 
-`null` represents the absence of an object reference.
+The null literal represents the absence of an object reference.
 
-## 7.4 Operators
+## 7.5 Operators
 
-Operators are symbols used to perform operations.
+Operators are symbols used to perform operations on variables and values.
 
-| Operator Type | Examples |
+| Operator Category | Operators |
 |---|---|
-| Arithmetic | `+`, `-`, `*`, `/`, `%` |
-| Relational | `<`, `>`, `<=`, `>=`, `==`, `!=` |
-| Logical | `&&`, `||`, `!` |
-| Assignment | `=`, `+=`, `-=`, `*=`, `/=` |
-| Unary | `++`, `--`, `+`, `-`, `!` |
-| Bitwise | `&`, `|`, `^`, `~` |
-| Shift | `<<`, `>>`, `>>>` |
-| Conditional | `?:` |
+| Arithmetic | +, -, *, /, % |
+| Relational | <, >, <=, >= |
+| Equality | ==, != |
+| Logical | &&, ||, ! |
+| Assignment | =, +=, -=, *=, /= |
+| Unary | ++, --, +, - |
+| Bitwise | &, \|, ^, ~ |
+| Shift | <<, >>, >>> |
+| Conditional | ?: |
 
-### Example
+Example:
 
 ```java
 class OperatorDemo {
+
     public static void main(String[] args) {
 
         int a = 10;
+
         int b = 20;
 
         System.out.println(a + b);
+
         System.out.println(a > b);
+
         System.out.println(a == b);
+
     }
 }
 ```
@@ -1158,135 +1936,182 @@ false
 false
 ```
 
-## 7.5 Separators
+## 7.6 Separators
 
-Separators are used to organize Java source code.
+Separators are symbols used to organize Java source code.
 
 | Separator | Purpose |
 |---|---|
-| `()` | Method calls and parameter lists |
-| `{}` | Blocks and class bodies |
-| `[]` | Arrays |
-| `;` | Statement termination |
-| `,` | Separates elements |
-| `.` | Member access |
-| `@` | Annotations |
-| `::` | Method references |
+| () | Method calls and parameter lists |
+| {} | Class and method blocks |
+| [] | Arrays |
+| ; | Statement termination |
+| , | Separates elements |
+| . | Member access |
+| @ | Annotations |
+| :: | Method references |
 
 ---
 
-# 8. Important Java Practical Programs
+# 8. Important Differences for CMCE
 
-## Program 1: Print Personal Details
+## 8.1 JDK vs JRE vs JVM
+
+| JDK | JRE | JVM |
+|---|---|---|
+| Development kit | Runtime environment | Virtual machine |
+| Contains development tools | Provides runtime components | Executes bytecode |
+| Used to develop applications | Used to run applications | Core execution environment |
+
+## 8.2 Heap vs Stack
+
+| Heap | Stack |
+|---|---|
+| Shared memory area | Per-thread memory area |
+| Stores objects and arrays | Stores method execution frames |
+| Objects are reclaimed by GC when eligible | Frames are removed as methods return |
+| Used for dynamic object allocation | Used for method execution |
+
+## 8.3 Interpreter vs JIT Compiler
+
+| Interpreter | JIT Compiler |
+|---|---|
+| Executes bytecode instructions | Compiles selected bytecode into native code |
+| Can start execution immediately | Has compilation overhead |
+| Repeated interpretation may be slower | Optimized native code can execute faster |
+| Part of execution engine | Part of execution engine |
+
+## 8.4 Primitive vs Reference Data Types
+
+| Primitive | Reference |
+|---|---|
+| Eight built-in types | Classes, interfaces and arrays |
+| Stores primitive values | Stores references to objects |
+| Cannot be null | Can be null |
+| Example: int | Example: String |
+
+## 8.5 Keyword vs Identifier vs Literal
+
+| Keyword | Identifier | Literal |
+|---|---|---|
+| Reserved word | Programmer-defined name | Fixed value |
+| class | Student | 100 |
+| int | age | 22 |
+| public | display | "Java" |
+
+## 8.6 Widening vs Narrowing
+
+| Widening | Narrowing |
+|---|---|
+| Smaller to wider numeric type | Wider to narrower numeric type |
+| Generally automatic | Generally explicit |
+| Can still lose precision | Can lose range or precision |
+| int to double | double to int |
+
+---
+
+# 9. Important Java Practical Programs
+
+## Program 1: Hello World
+
+```java
+class HelloWorld {
+
+    public static void main(String[] args) {
+
+        System.out.println("Hello World");
+
+    }
+}
+```
+
+Output:
+
+```text
+Hello World
+```
+
+## Program 2: Display Personal Details
 
 ```java
 class PersonalDetails {
+
     public static void main(String[] args) {
 
         String name = "Anurag";
+
         int age = 22;
+
         String course = "PGCP-AC";
 
         System.out.println("Name: " + name);
+
         System.out.println("Age: " + age);
+
         System.out.println("Course: " + course);
+
     }
 }
 ```
 
-## Program 2: Addition of Two Numbers
+## Program 3: Demonstrate All Primitive Data Types
 
 ```java
-class Addition {
+class PrimitiveDemo {
+
     public static void main(String[] args) {
 
-        int a = 10;
-        int b = 20;
+        byte a = 100;
 
-        int sum = a + b;
+        short b = 20000;
 
-        System.out.println("Sum = " + sum);
-    }
-}
-```
+        int c = 100000;
 
-Output:
+        long d = 9000000000L;
 
-```text
-Sum = 30
-```
+        float e = 10.5f;
 
-## Program 3: Display Size of Primitive Types
+        double f = 99.999;
 
-```java
-class SizeDemo {
-    public static void main(String[] args) {
+        char g = 'A';
 
-        System.out.println(Byte.BYTES);
-        System.out.println(Short.BYTES);
-        System.out.println(Integer.BYTES);
-        System.out.println(Long.BYTES);
-        System.out.println(Float.BYTES);
-        System.out.println(Double.BYTES);
-        System.out.println(Character.BYTES);
-    }
-}
-```
-
-Output:
-
-```text
-1
-2
-4
-8
-4
-8
-2
-```
-
-## Program 4: Integer Number Systems
-
-```java
-class NumberSystem {
-    public static void main(String[] args) {
-
-        int a = 10;
-        int b = 0b1010;
-        int c = 012;
-        int d = 0xA;
+        boolean h = true;
 
         System.out.println(a);
+
         System.out.println(b);
+
         System.out.println(c);
+
         System.out.println(d);
+
+        System.out.println(e);
+
+        System.out.println(f);
+
+        System.out.println(g);
+
+        System.out.println(h);
+
     }
 }
 ```
 
-Output:
-
-```text
-10
-10
-10
-10
-```
-
-## Program 5: Type Casting
+## Program 4: Demonstrate Widening Conversion
 
 ```java
-class CastingDemo {
+class WideningDemo {
+
     public static void main(String[] args) {
 
         int a = 100;
+
         double b = a;
 
-        double x = 99.99;
-        int y = (int) x;
+        System.out.println("Integer: " + a);
 
-        System.out.println(b);
-        System.out.println(y);
+        System.out.println("Double: " + b);
+
     }
 }
 ```
@@ -1294,157 +2119,285 @@ class CastingDemo {
 Output:
 
 ```text
-100.0
-99
+Integer: 100
+Double: 100.0
+```
+
+## Program 5: Demonstrate Narrowing Conversion
+
+```java
+class NarrowingDemo {
+
+    public static void main(String[] args) {
+
+        double a = 99.99;
+
+        int b = (int)a;
+
+        System.out.println("Double: " + a);
+
+        System.out.println("Integer: " + b);
+
+    }
+}
+```
+
+Output:
+
+```text
+Double: 99.99
+Integer: 99
+```
+
+## Program 6: Demonstrate Java Number Systems
+
+```java
+class NumberSystem {
+
+    public static void main(String[] args) {
+
+        int decimal = 10;
+
+        int binary = 0b1010;
+
+        int octal = 012;
+
+        int hexadecimal = 0xA;
+
+        System.out.println(decimal);
+
+        System.out.println(binary);
+
+        System.out.println(octal);
+
+        System.out.println(hexadecimal);
+
+    }
+}
+```
+
+Output:
+
+```text
+10
+10
+10
+10
+```
+
+## Program 7: Demonstrate Command-Line Arguments
+
+```java
+class CommandLineDemo {
+
+    public static void main(String[] args) {
+
+        System.out.println("Name: " + args[0]);
+
+        System.out.println("Course: " + args[1]);
+
+    }
+}
+```
+
+Execute:
+
+```bash
+java CommandLineDemo Anurag CMCE
+```
+
+Output:
+
+```text
+Name: Anurag
+Course: CMCE
+```
+
+## Program 8: Demonstrate Default Values
+
+```java
+class DefaultDemo {
+
+    int age;
+
+    double salary;
+
+    boolean status;
+
+    char grade;
+
+    public static void main(String[] args) {
+
+        DefaultDemo obj = new DefaultDemo();
+
+        System.out.println(obj.age);
+
+        System.out.println(obj.salary);
+
+        System.out.println(obj.status);
+
+        System.out.println((int)obj.grade);
+
+    }
+}
+```
+
+Output:
+
+```text
+0
+0.0
+false
+0
 ```
 
 ---
 
-# 9. Important CMCE Theory and Interview Questions
+# 10. CMCE Interview and Theory Questions
 
-**Q1. What is Java?**
+### Q1. What is Java?
 
-Java is a high-level, class-based, object-oriented programming language that supports platform-independent execution through bytecode and the JVM.
+Java is a high-level, class-based, object-oriented programming language that supports platform-independent execution through bytecode and JVM.
 
-**Q2. Who developed Java?**
+### Q2. Who developed Java?
 
 James Gosling and his team at Sun Microsystems.
 
-**Q3. What was the original name of Java?**
+### Q3. What was the original name of Java?
 
 Oak.
 
-**Q4. What is WORA?**
+### Q4. What is WORA?
 
 WORA stands for Write Once, Run Anywhere. Java bytecode can run on compatible JVM implementations across different platforms.
 
-**Q5. Why is Java platform-independent?**
+### Q5. Why is Java platform-independent?
 
-Because Java source code is compiled into bytecode, which can execute on different operating systems using a compatible JVM.
+Java source code is compiled into bytecode, which can execute on different operating systems using compatible JVM implementations.
 
-**Q6. Is JVM platform-independent?**
+### Q6. Is JVM platform-independent?
 
 No. JVM implementations are platform-specific.
 
-**Q7. Is Java compiled or interpreted?**
+### Q7. What is bytecode?
+
+Bytecode is an intermediate instruction format generated by the Java compiler and executed by JVM.
+
+### Q8. Is Java compiled or interpreted?
 
 Java source code is compiled into bytecode, which the JVM executes using interpretation and/or JIT compilation.
 
-**Q8. What is bytecode?**
+### Q9. What is JVM?
 
-Bytecode is the intermediate instruction format generated by the Java compiler and executed by the JVM.
+JVM is the Java Virtual Machine responsible for loading and executing Java bytecode.
 
-**Q9. What is JVM?**
+### Q10. What are the major components of JVM?
 
-JVM is the Java Virtual Machine that loads and executes Java bytecode.
+Class Loader Subsystem, Runtime Data Areas, Execution Engine, JNI and Native Method Libraries.
 
-**Q10. What are the major components of JVM?**
-
-Class Loader Subsystem, Runtime Data Areas, Execution Engine, JNI and Native Libraries.
-
-**Q11. What are the phases of class loading and initialization?**
+### Q11. What are the phases of class loading?
 
 Loading, Linking and Initialization.
 
-**Q12. What are the steps of linking?**
+### Q12. What are the stages of linking?
 
 Verification, Preparation and Resolution.
 
-**Q13. What is JIT?**
+### Q13. What is JIT?
 
 JIT stands for Just-In-Time Compiler. It converts selected bytecode into optimized native machine code during execution.
 
-**Q14. What is the difference between stack and heap?**
+### Q14. What is garbage collection?
 
-Heap stores objects and arrays, while JVM stacks contain method execution frames and local variables.
+Garbage collection is the automatic process of reclaiming memory occupied by unreachable objects.
 
-**Q15. What is garbage collection?**
+### Q15. What is the difference between Heap and Stack?
 
-Garbage collection is the automatic process of reclaiming memory from unreachable objects.
+Heap stores objects and arrays, whereas JVM stacks contain method execution frames.
 
-**Q16. What is JDK?**
+### Q16. What is JDK?
 
-JDK is the Java Development Kit, which provides tools for developing and executing Java programs.
+JDK is the Java Development Kit, which provides tools required to develop and execute Java applications.
 
-**Q17. What is JRE?**
+### Q17. What is JRE?
 
-JRE is the Java Runtime Environment, which provides the components needed to run Java applications.
+JRE is the Java Runtime Environment, which provides runtime components needed to execute Java applications.
 
-**Q18. What is the difference between `javac` and `java`?**
+### Q18. What is the difference between javac and java?
 
-`javac` compiles source code into bytecode, while `java` launches the application.
+`javac` compiles source code into bytecode, whereas `java` launches the Java application.
 
-**Q19. What is the main method in Java?**
+### Q19. What is the main method?
 
-The standard entry-point method is `public static void main(String[] args)`.
+The standard entry-point method of a conventional Java application is `public static void main(String[] args)`.
 
-**Q20. Why is main() static?**
+### Q20. Why is main() static?
 
-So the Java launcher can invoke it without creating an object of the class.
+It allows the Java launcher to invoke the method without creating an instance of the class.
 
-**Q21. How many primitive data types are available in Java?**
+### Q21. How many primitive data types are available in Java?
 
 Eight: byte, short, int, long, float, double, char and boolean.
 
-**Q22. What is the default type of an integer literal?**
+### Q22. What is the size of int in Java?
 
-`int`, when the literal is representable as an int and has no `L` suffix.
+32 bits or 4 bytes.
 
-**Q23. What is the default type of a decimal floating-point literal?**
+### Q23. What is the size of char in Java?
 
-`double`, unless suffixed with `f` or `F`.
+16 bits or 2 bytes.
 
-**Q24. What is the size of char in Java?**
+### Q24. What is the default type of an integer literal?
 
-16 bits.
+int, when the literal is representable as an int and has no L suffix.
 
-**Q25. Is String a primitive data type?**
+### Q25. What is the default type of a decimal floating-point literal?
 
-No. String is a class and a reference type.
+double.
 
-**Q26. What are Java tokens?**
+### Q26. Is String a primitive data type?
 
-Tokens are the smallest meaningful elements of Java source code.
+No. String is a class and reference type.
 
-**Q27. What is a keyword?**
+### Q27. What are Java tokens?
+
+Tokens are the smallest meaningful elements of a Java program.
+
+### Q28. What is a keyword?
 
 A reserved word with a predefined meaning in Java.
 
-**Q28. What is an identifier?**
+### Q29. What is an identifier?
 
-A name assigned to a variable, class, method or another program element.
+A name assigned to a class, variable, method or another program element.
 
-**Q29. What is a literal?**
+### Q30. What is a literal?
 
 A fixed value directly written in Java source code.
 
-**Q30. Is `main` a Java keyword?**
+### Q31. Is main a keyword?
 
 No. It is a method name.
 
-**Q31. Is `true` a keyword?**
+### Q32. Is true a keyword?
 
 No. It is a boolean literal.
 
-**Q32. Is Java case-sensitive?**
+### Q33. Is Java case-sensitive?
 
 Yes. `age`, `Age` and `AGE` are different identifiers.
 
-**Q33. What is type casting?**
+### Q34. What is type casting?
 
-Type casting explicitly converts a value from one compatible type to another.
+Type casting converts a value from one compatible data type into another.
 
-**Q34. Can boolean be converted to int in Java?**
+### Q35. Can boolean be converted into int?
 
-No. Java does not permit numeric-boolean conversion.
-
-**Q35. What is the difference between primitive and reference types?**
-
-Primitive variables store primitive values, while reference variables store references to objects.
+No. Java does not allow boolean-to-numeric conversion.
 
 ---
 
-# 10. CMCE Practice MCQs
+# 11. CMCE Practice MCQs
 
 ### Q1. Who is known as the father of Java?
 
@@ -1466,12 +2419,12 @@ D. Javadoc
 
 ### Q3. Which file is generated after compiling Java source code?
 
-A. `.exe`  
-B. `.java`  
-C. `.class`  
-D. `.txt`
+A. .exe  
+B. .java  
+C. .class  
+D. .txt
 
-**Answer: C. `.class`**
+**Answer: C. .class**
 
 ### Q4. Which memory area generally stores Java objects?
 
@@ -1541,7 +2494,7 @@ D. public
 A. Loading  
 B. Verification  
 C. Preparation  
-D. Initialization
+D. Resolution
 
 **Answer: C. Preparation**
 
@@ -1549,14 +2502,16 @@ D. Initialization
 
 ```java
 int a = 10;
+
 double b = a;
+
 System.out.println(b);
 ```
 
 A. 10  
 B. 10.0  
-C. Compilation error  
-D. Runtime exception
+C. Compilation Error  
+D. Runtime Exception
 
 **Answer: B. 10.0**
 
@@ -1571,30 +2526,31 @@ D. Java does not support multithreading.
 
 ### Q14. Which literal represents binary 10?
 
-A. `010`  
-B. `0x10`  
-C. `0b1010`  
-D. `10b`
+A. 010  
+B. 0x10  
+C. 0b1010  
+D. 10b
 
-**Answer: C. `0b1010`**
+**Answer: C. 0b1010**
 
 ### Q15. What is the output?
 
 ```java
 char ch = 'A';
+
 System.out.println((int) ch);
 ```
 
 A. A  
 B. 65  
 C. 97  
-D. Compilation error
+D. Compilation Error
 
 **Answer: B. 65**
 
 ---
 
-# 11. Quick Revision Notes
+# 12. Quick Revision Notes
 
 | Topic | Important Point |
 |---|---|
@@ -1602,10 +2558,10 @@ D. Compilation error
 | Developer | James Gosling |
 | Original Name | Oak |
 | WORA | Write Once, Run Anywhere |
-| Java Compiler | `javac` |
-| Java Launcher | `java` |
-| Source File | `.java` |
-| Bytecode File | `.class` |
+| Java Compiler | javac |
+| Java Launcher | java |
+| Source File | .java |
+| Bytecode File | .class |
 | JVM | Executes Java bytecode |
 | JDK | Java Development Kit |
 | JRE | Java Runtime Environment |
@@ -1632,129 +2588,68 @@ D. Compilation error
 
 ---
 
-# 12. Important Differences for CMCE
+# 13. Practice Checklist
 
-## JDK vs JRE vs JVM
-
-| JDK | JRE | JVM |
-|---|---|---|
-| Development kit | Runtime environment | Virtual machine |
-| Includes compiler and tools | Provides runtime components | Executes bytecode |
-| Used for development | Used for execution | Core execution engine |
-
-## Stack vs Heap
-
-| Stack | Heap |
-|---|---|
-| Per-thread memory | Shared memory |
-| Contains method frames | Contains objects and arrays |
-| Frames are removed when methods return | Objects are reclaimed by garbage collection when eligible |
-| Supports method execution | Supports dynamic object allocation |
-
-## Compiler vs Interpreter
-
-| Compiler | Interpreter |
-|---|---|
-| Translates code into another representation | Executes instructions |
-| `javac` produces bytecode | JVM interpreter executes bytecode |
-| Compilation errors may be reported before execution | Runtime errors may occur during execution |
-
-## Keyword vs Identifier vs Literal
-
-| Keyword | Identifier | Literal |
-|---|---|---|
-| Reserved word | Programmer-defined name | Fixed value |
-| `class` | `Student` | `100` |
-| `int` | `age` | `22` |
-| `public` | `display` | `"Java"` |
-
----
-
-# 13. Lab Practice Checklist
-
-### Java Fundamentals
+## Theory Preparation
 
 - [ ] Understand Java history and introduction.
-- [ ] Learn the main features of Java.
-- [ ] Understand platform independence.
+- [ ] Learn all major features of Java.
 - [ ] Understand WORA.
 - [ ] Understand source code, bytecode and machine code.
-
-### JVM Architecture
-
-- [ ] Draw and explain JVM architecture.
+- [ ] Draw JVM architecture.
 - [ ] Understand Class Loader Subsystem.
 - [ ] Learn Loading, Linking and Initialization.
 - [ ] Understand Heap and Stack.
-- [ ] Understand Method Area and PC Register.
-- [ ] Understand Interpreter and JIT Compiler.
-- [ ] Understand Garbage Collection.
-- [ ] Understand JNI.
-
-### JDK and Java Class
-
-- [ ] Install or verify JDK 17.
-- [ ] Check `java -version`.
-- [ ] Check `javac -version`.
-- [ ] Compile a Java program.
-- [ ] Execute a Java program.
+- [ ] Understand Interpreter, JIT and Garbage Collector.
+- [ ] Differentiate JDK, JRE and JVM.
 - [ ] Understand Java class structure.
 - [ ] Understand the main method.
-- [ ] Practice command-line arguments.
 
-### Primitive Data Types
+## Practical Preparation
 
-- [ ] Learn all 8 primitive data types.
-- [ ] Remember primitive sizes.
-- [ ] Understand primitive ranges.
-- [ ] Practice integer and floating-point literals.
-- [ ] Understand char and boolean.
-- [ ] Practice widening conversions.
-- [ ] Practice narrowing conversions.
+- [ ] Write Hello World.
+- [ ] Display personal details using variables.
+- [ ] Demonstrate all eight primitive data types.
+- [ ] Perform arithmetic operations.
+- [ ] Demonstrate widening conversion.
+- [ ] Demonstrate narrowing conversion.
+- [ ] Demonstrate integer number systems.
+- [ ] Demonstrate command-line arguments.
+- [ ] Demonstrate default values.
 
-### Java Tokens
+## CMCE Exam Preparation
 
-- [ ] Learn important Java keywords.
-- [ ] Understand identifier rules.
-- [ ] Practice valid and invalid identifiers.
-- [ ] Understand integer literals.
-- [ ] Understand floating-point literals.
-- [ ] Understand character and string literals.
-- [ ] Understand boolean and null literals.
-- [ ] Revise operators and separators.
-
-### CMCE Exam Preparation
-
-- [ ] Revise all theory definitions.
-- [ ] Practice 15 MCQs.
-- [ ] Practice output-based Java questions.
-- [ ] Revise JDK vs JRE vs JVM.
-- [ ] Revise Heap vs Stack.
-- [ ] Revise primitive data types.
-- [ ] Revise Java tokens.
-- [ ] Solve all practical programs.
+- [ ] Revise all definitions.
+- [ ] Memorize primitive data type sizes.
+- [ ] Revise JVM architecture.
+- [ ] Practise JDK vs JRE vs JVM.
+- [ ] Practise Heap vs Stack.
+- [ ] Practise Java tokens.
+- [ ] Solve MCQs.
+- [ ] Solve output-based questions.
+- [ ] Write practical programs without referring to notes.
 
 ---
 
-# 14. Useful Java Commands for Revision
+# 14. Important Java Commands
 
 ```bash
 # Check Java version
 java -version
 
-# Check compiler version
+# Check Java compiler version
 javac -version
 
 # Compile Java program
 javac Hello.java
 
-# Run Java program
+# Execute Java program
 java Hello
 
-# Run with command-line arguments
+# Execute with command-line arguments
 java Hello Anurag
 
-# Inspect compiled class
+# Display class information
 javap Hello
 
 # Display bytecode instructions
@@ -1763,47 +2658,48 @@ javap -c Hello
 # Start Java interactive shell
 jshell
 
-# Generate documentation
+# Generate Java documentation
 javadoc Hello.java
 ```
 
 ---
 
-# 15. Final CMCE Revision Summary
-
-**Must Remember:**
+# 15. Final CMCE Revision – Must Remember
 
 1. Java was developed by James Gosling.
 2. Java was originally named Oak.
 3. Java follows WORA.
 4. Java source code is compiled into bytecode.
-5. JVM executes bytecode.
+5. JVM executes Java bytecode.
 6. JVM implementations are platform-dependent.
 7. Class loading involves Loading, Linking and Initialization.
 8. Linking involves Verification, Preparation and Resolution.
 9. Heap stores objects and arrays.
 10. JVM stacks store method execution frames.
-11. JIT compiles selected bytecode into native code.
-12. Garbage Collector reclaims unreachable objects.
+11. JIT compiles selected bytecode into native machine code.
+12. Garbage Collector reclaims memory from unreachable objects.
 13. JDK provides Java development tools.
 14. Java has eight primitive data types.
-15. `String` is not a primitive data type.
-16. `char` uses 16 bits.
-17. `float` literals normally require an `f` suffix.
+15. String is not a primitive data type.
+16. char uses 16 bits.
+17. float literals normally require an f suffix.
 18. Java is case-sensitive.
-19. `main` is not a keyword.
-20. `true`, `false` and `null` are literals.
+19. main is not a Java keyword.
+20. true, false and null are literals.
+
+---
+
+# 📖 References
+
+- ACTS Pune – Object Oriented Programming with Java, PGCP-AC August 2026.
+- Java 17 Official Documentation: https://docs.oracle.com/en/java/javase/17/
+- Java Language Specification: https://docs.oracle.com/javase/specs/jls/se17/html/
+- OpenJDK: https://openjdk.org/
 
 ---
 
 **End of Session 1 – Introduction to Java**
 
-**Topics Covered:** Introduction to Java, Java Features, JVM Architecture, JDK, Java Class Structure, Primitive Data Types and Java Tokens.
+**Preparation Focus:** CMCE Theory + Practical Programs + MCQs + Output-Based Questions + Interviews.
 
-**Preparation Focus:** CMCE Theory, MCQs, Output-Based Questions, Lab Practice and Interviews.
-
-**Reference:** ACTS Pune – Object Oriented Programming with Java, PGCP-AC August 2026 (Java 17).
-
-**Official Java Documentation:** https://docs.oracle.com/en/java/javase/17/
-
-⭐ Keep Learning, Keep Coding and Keep Revising!
+⭐ Keep Learning, Keep Coding and Keep Revising! ☕
