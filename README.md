@@ -1,4 +1,55 @@
-﻿<div align="center">
+<div align="center">
+
+# Hi, I'm Anurag Dhondge 👋
+
+### Software Developer | AI & Machine Learning Engineer | CDAC PGCP-AC (IACSD Pune)
+
+[![LinkedIn](https://shields.io)](https://linkedin.com)
+[![GitHub](https://shields.io)](https://github.com)
+
+</div>
+
+---
+
+## About Me
+
+I am a **B.E. graduate in Artificial Intelligence and Machine Learning** from **PES Modern College of Engineering, Pune**, currently pursuing the **Post Graduate Certificate Programme in Advanced Computing (PGCP-AC)** at **IACSD, Pune**. I enjoy building full-stack web applications, solving data structures and algorithms problems, and developing practical AI-driven software solutions.
+
+- 🎓 **Education:** B.E. in AI & ML | CDAC PGCP-AC (IACSD Akurdi, Pune)
+- 💻 **Core Focus:** Java Enterprise (Spring Boot, JDBC, Servlets, JSP), C++, Data Structures & Algorithms, Full-Stack Web Development, and Machine Learning
+- 📍 **Location:** Pune, Maharashtra, India
+
+---
+
+## Featured Repository
+
+### 📚 [CDAC Learning Hub (`anurag-dhondge/CDAC`)](https://github.com/CDAC)
+A structured collection of my **CDAC PGCP-AC coursework, coding assignments, notes, and practice projects** at IACSD Pune, covering:
+- **Programming & OOP:** C, C++, and Core Java
+- **Problem Solving:** Data Structures and Algorithms (DSA)
+- **Backend & Enterprise:** JDBC, Servlets, JSP, Hibernate, and Spring Boot
+- **Databases & Web:** MySQL, MongoDB, HTML, CSS, JavaScript, React, and Node.js
+
+---
+
+## Tech Stack
+
+<div align="center">
+
+<img src="https://skillicons.dev" alt="Tech Stack Icons" />
+
+</div>
+
+---
+
+## Connect With Me
+
+- **LinkedIn:** [://linkedin.com](https://linkedin.com)
+- **GitHub:** [://github.com](https://github.com)
+
+ 
+ 
+ <div align="center">
 
 # CDAC Learning Hub
 
