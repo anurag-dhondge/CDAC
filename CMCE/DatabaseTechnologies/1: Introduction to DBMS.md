@@ -1,7 +1,7 @@
 # Session 1: Introduction to DBMS
 ## Database Technologies | PGCP-AC | CMCE | August 2026
 
-**Institute:** ACTS, Pune  
+
 **Duration:** 1 Theory Hour  
 **Subject:** Database Technologies  
 **Session:** 01 – Introduction to DBMS
