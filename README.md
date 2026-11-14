@@ -4,9 +4,6 @@
 
 ### Software Developer | AI & Machine Learning Engineer | CDAC PGCP-AC (IACSD Pune)
 
-[![LinkedIn](https://shields.io)](https://linkedin.com)
-[![GitHub](https://shields.io)](https://github.com)
-
 </div>
 
 ---
@@ -23,7 +20,6 @@ I am a **B.E. graduate in Artificial Intelligence and Machine Learning** from **
 
 ## Featured Repository
 
-### 📚 [CDAC Learning Hub (`anurag-dhondge/CDAC`)](https://github.com/CDAC)
 A structured collection of my **CDAC PGCP-AC coursework, coding assignments, notes, and practice projects** at IACSD Pune, covering:
 - **Programming & OOP:** C, C++, and Core Java
 - **Problem Solving:** Data Structures and Algorithms (DSA)
@@ -32,20 +28,6 @@ A structured collection of my **CDAC PGCP-AC coursework, coding assignments, not
 
 ---
 
-## Tech Stack
-
-<div align="center">
-
-<img src="https://skillicons.dev" alt="Tech Stack Icons" />
-
-</div>
-
----
-
-## Connect With Me
-
-- **LinkedIn:** [://linkedin.com](https://linkedin.com)
-- **GitHub:** [://github.com](https://github.com)
 
  
  
