@@ -2,7 +2,7 @@
 
 ## Database Technologies | PGCP-AC | CMCE | August 2026
 
-**Institute:** ACTS, Pune  
+ 
 **Course:** PGCP-AC  
 **Subject:** Database Technologies  
 **Session:** 02 – Introduction to SQL  
